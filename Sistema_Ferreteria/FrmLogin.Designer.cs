@@ -1,6 +1,6 @@
 ﻿namespace Sistema_Ferreteria
 {
-    partial class Form1
+    partial class FrmLogin
     {
         /// <summary>
         /// Variable del diseñador necesaria.
