@@ -24,8 +24,6 @@ namespace Sistema_Ferreteria
             Usuario usuario = new Usuario(txtUser.Text.ToUpper(), TxtPass.Text.ToUpper());
             UsuarioNegocio UsuarioNegocio = new UsuarioNegocio();
 
-            
-
             if (UsuarioNegocio.Login(usuario))
             {
                 MessageBox.Show("Login extioso");
@@ -39,6 +37,9 @@ namespace Sistema_Ferreteria
             txtUser.Clear();
             TxtPass.Clear();
             this.Hide();
+
+            FrmMenu FrmMenu = new FrmMenu();
+            FrmMenu.ShowDialog();
 
         }
 
