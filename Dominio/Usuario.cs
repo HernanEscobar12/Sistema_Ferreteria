@@ -17,5 +17,16 @@ namespace Dominio
         public Cargo Cargo { get; set; }
 
         public int Estado { get; set; }
+
+        // Constructor Vacio
+        public Usuario() { }
+
+        // Constructor PreCargable
+        public Usuario(string UserTxt , string Pass)
+        {
+            User = UserTxt;
+            Clave = Pass;
+        }
+
     }
 }
