@@ -44,13 +44,13 @@
             // 
             // btnProductos
             // 
-            this.btnProductos.Location = new System.Drawing.Point(37, 143);
+            this.btnProductos.Location = new System.Drawing.Point(48, 146);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Size = new System.Drawing.Size(77, 80);
-            this.btnProductos.TabIndex = 1;
+            this.btnProductos.TabIndex = 2;
             this.btnProductos.Text = "Productos";
             this.btnProductos.UseVisualStyleBackColor = true;
-            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
+            this.btnProductos.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmMenu
             // 
