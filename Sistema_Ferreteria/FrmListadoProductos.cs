@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Dominio;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace Sistema_Ferreteria
 {
     public partial class FrmListadoProductos : Form
     {
+        private Producto Producto = null;
         public FrmListadoProductos()
         {
             InitializeComponent();
@@ -24,6 +26,22 @@ namespace Sistema_Ferreteria
             dgvProductos.DataSource = productoNegocio.ListarProductos();
         }
 
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Producto = (Producto)dgvProductos.CurrentRow.DataBoundItem;
+            FrmDetalleProducto frmDetalleProducto = new FrmDetalleProducto(Producto);
+            frmDetalleProducto.ShowDialog();
+        }
 
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            FrmDetalleProducto frmDetalleProducto = new FrmDetalleProducto();
+            frmDetalleProducto.ShowDialog();
+        }
     }
 }
