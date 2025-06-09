@@ -19,7 +19,14 @@ namespace Sistema_Ferreteria
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
+            FrmDetalleProducto frmProductos = new FrmDetalleProducto();
+            frmProductos.ShowDialog();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmListadoProductos frmListadoProductos = new FrmListadoProductos();
+            frmListadoProductos.ShowDialog();
         }
     }
 }
