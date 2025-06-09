@@ -14,7 +14,7 @@
 
         public Categoria Categoria { get; set; }
 
-        public int Estado { get; set; } // 1: Activo, 2: Inactivo
+        //public int Estado { get; set; } // 1: Activo, 2: Inactivo
 
 
     }

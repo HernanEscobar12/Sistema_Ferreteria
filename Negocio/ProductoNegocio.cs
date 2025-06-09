@@ -57,12 +57,33 @@ namespace Negocio
 
             try
             {
-               
+               Datos.SetearProcedimiento("ListarProductos");
+                Datos.EjecutarLectura();
+
+                while (Datos.Lector.Read())
+                {
+                    Producto producto = new Producto();
+                    producto.ProductoId = (int)Datos.Lector["Producto_Id"];
+                    producto.Codigo = Datos.Lector["Codigo"].ToString();
+                    producto.Nombre = Datos.Lector["Nombre"].ToString();
+                    producto.Descripcion = Datos.Lector["Descripcion"].ToString();
+                    producto.PrecioUnitario = (decimal)Datos.Lector["PrecioUnitario"];
+                    if (!(Datos.Lector["ImagenProducto"] is DBNull))
+                    {
+                        producto.UrlImagen = (string)Datos.Lector["ImagenProducto"];
+                    }
+                    producto.Categoria = new Categoria();
+                    producto.Categoria.IdCategoria = (int)Datos.Lector["Categoria_Id"];
+                    producto.Categoria.Nombre = (string)Datos.Lector["Categoria"];
+                    lista.Add(producto);
+                }
+
+                return lista;
             }
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 
