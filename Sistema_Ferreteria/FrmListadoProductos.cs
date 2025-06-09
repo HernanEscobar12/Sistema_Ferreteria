@@ -21,7 +21,9 @@ namespace Sistema_Ferreteria
         private void FrmProductos_Load(object sender, EventArgs e)
         {
             ProductoNegocio productoNegocio = new ProductoNegocio();
-            dgvProductos.DataSource = productoNegocio.ListarProductos();
+            //dgvProductos.DataSource = productoNegocio.ListarProductos();
+            dgvProductos.DataSource = productoNegocio.Listado(); // Listado con StoredProcedure
+
         }
 
 
