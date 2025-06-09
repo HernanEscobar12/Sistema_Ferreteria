@@ -38,6 +38,12 @@ namespace Datos
             cmd.Parameters.AddWithValue(Nombre, Valor);
         }
 
+        public void SetearProcedimiento(string Sp)
+        {
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = Sp;
+        }
+       
         public void EjecutarLectura()
         {
             try
