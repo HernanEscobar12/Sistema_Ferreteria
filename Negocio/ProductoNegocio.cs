@@ -49,6 +49,22 @@ namespace Negocio
 
         }
 
+        public List<Producto> Listado()
+        {
+            AccesoDatos Datos = new AccesoDatos();
+
+            List<Producto> lista = new List<Producto>();
+
+            try
+            {
+               
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
 
     }
 }
