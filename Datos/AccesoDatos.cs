@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -43,7 +44,22 @@ namespace Datos
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.CommandText = Sp;
         }
-       
+
+        public void SetearParametroSalida(string nombre, SqlDbType tipo, int tamaño)
+        {
+            SqlParameter parametroSalida = new SqlParameter(nombre, tipo, tamaño);
+            parametroSalida.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(parametroSalida);
+        }
+
+        public object ObtenerParametroSalida(string nombre)
+        {
+            return cmd.Parameters[nombre].Value;
+        }
+
+
+
+
         public void EjecutarLectura()
         {
             try

@@ -22,15 +22,17 @@ namespace Sistema_Ferreteria
 
         private void FrmProductos_Load(object sender, EventArgs e)
         {
-            ProductoNegocio productoNegocio = new ProductoNegocio();
-            dgvProductos.DataSource = productoNegocio.ListarProductos();
+            Carga();
         }
 
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Producto = (Producto)dgvProductos.CurrentRow.DataBoundItem;
             FrmDetalleProducto frmDetalleProducto = new FrmDetalleProducto(Producto);
-            frmDetalleProducto.ShowDialog();
+            if(frmDetalleProducto.ShowDialog() == DialogResult.OK)
+            {
+                Carga();
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -41,7 +43,27 @@ namespace Sistema_Ferreteria
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FrmDetalleProducto frmDetalleProducto = new FrmDetalleProducto();
-            frmDetalleProducto.ShowDialog();
+
+            if (frmDetalleProducto.ShowDialog() == DialogResult.OK)
+            {
+                Carga();
+            }
+
+        }
+
+        private void Carga()
+        {
+            ProductoNegocio productoNegocio = new ProductoNegocio();
+            dgvProductos.DataSource = productoNegocio.Listado();
+        }
+
+        private void btnInactivos_Click(object sender, EventArgs e)
+        {
+            ProductoNegocio productoNegocio = new ProductoNegocio();
+            dgvProductos.DataSource = null;
+            dgvProductos.DataSource = productoNegocio.ListarProductosInactivos();
+           
+
         }
     }
 }
