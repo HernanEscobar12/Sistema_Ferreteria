@@ -55,6 +55,8 @@ namespace Sistema_Ferreteria
         {
             ProductoNegocio productoNegocio = new ProductoNegocio();
             dgvProductos.DataSource = productoNegocio.Listado();
+            btnActivos.Visible = false;
+            btnInactivos.Enabled = true;
         }
 
         private void btnInactivos_Click(object sender, EventArgs e)
@@ -62,8 +64,13 @@ namespace Sistema_Ferreteria
             ProductoNegocio productoNegocio = new ProductoNegocio();
             dgvProductos.DataSource = null;
             dgvProductos.DataSource = productoNegocio.ListarProductosInactivos();
-           
+            btnInactivos.Enabled = false;
+            btnActivos.Visible = true;
+        }
 
+        private void btnActivos_Click(object sender, EventArgs e)
+        {
+            Carga();
         }
     }
 }
