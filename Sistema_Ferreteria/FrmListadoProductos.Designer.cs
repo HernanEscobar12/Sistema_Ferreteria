@@ -100,6 +100,7 @@
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dgvProductos);
             this.Name = "FrmListadoProductos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Productos";
             this.Load += new System.EventHandler(this.FrmProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
