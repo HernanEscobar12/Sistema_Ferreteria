@@ -9,7 +9,7 @@ namespace Dominio
     public class Cliente
     {
         public int IdCliente { get; set; }
-
+        public string Nombre { get; set; }
         public string Apellido { get; set; }
 
         public string Dni { get; set; }
@@ -21,8 +21,5 @@ namespace Dominio
         public Localidad Localidad { get; set; }
 
         public int Estado { get; set; }
-
-
-
     }
 }

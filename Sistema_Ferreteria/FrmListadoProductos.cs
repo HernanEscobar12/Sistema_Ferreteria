@@ -22,7 +22,11 @@ namespace Sistema_Ferreteria
 
         private void FrmProductos_Load(object sender, EventArgs e)
         {
+
             Carga();
+            ProductoNegocio productoNegocio = new ProductoNegocio();
+            //dgvProductos.DataSource = productoNegocio.ListarProductos();
+            dgvProductos.DataSource = productoNegocio.Listado(); // Listado con StoredProcedure
         }
 
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)

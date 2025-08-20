@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.btnProductos = new System.Windows.Forms.Button();
+            this.btnClientes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -52,14 +53,26 @@
             this.btnProductos.UseVisualStyleBackColor = true;
             this.btnProductos.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnClientes
+            // 
+            this.btnClientes.Location = new System.Drawing.Point(143, 146);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(77, 80);
+            this.btnClientes.TabIndex = 3;
+            this.btnClientes.Text = "Clientes";
+            this.btnClientes.UseVisualStyleBackColor = true;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnProductos);
             this.Controls.Add(this.label1);
             this.Name = "FrmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -70,5 +83,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnProductos;
+        private System.Windows.Forms.Button btnClientes;
     }
 }

@@ -6,5 +6,11 @@
         public string Calle { get; set; }
         public string Numero { get; set; }
 
+
+        public override string ToString()
+        {
+            return Calle + Numero;
+        }
+
     }
 }

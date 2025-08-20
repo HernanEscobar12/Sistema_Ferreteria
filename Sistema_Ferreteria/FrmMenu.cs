@@ -28,5 +28,11 @@ namespace Sistema_Ferreteria
             FrmListadoProductos frmListadoProductos = new FrmListadoProductos();
             frmListadoProductos.ShowDialog();
         }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            FrmListadoClientes frmListadoClientes = new FrmListadoClientes();
+            frmListadoClientes.ShowDialog();
+        }
     }
 }
