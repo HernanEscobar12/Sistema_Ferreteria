@@ -32,8 +32,7 @@ namespace Sistema_Ferreteria
                 btnEstado.Text = "Inactivar";
             else
                 btnEstado.Text = "Activar";
-           
-            
+  
             
            btnEstado.BackColor = Producto.Estado ? Color.Red : Color.Green;
            btnEstado.Visible = true;
@@ -132,6 +131,7 @@ namespace Sistema_Ferreteria
                     txtPrecio.Text = Producto.PrecioUnitario.ToString();
                     txtDescripcion.Text = Producto.Descripcion.ToString();
                     txtImgen.Text = Producto.UrlImagen.ToString();
+                    cboCategoria.SelectedValue = Producto.Categoria.IdCategoria;
                     CargaDeImagen(Producto.UrlImagen);
                 }
             }

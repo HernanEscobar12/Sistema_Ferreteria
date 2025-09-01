@@ -16,10 +16,14 @@ namespace Dominio
 
         public string Cuit  { get; set; }
 
-        public Direccion Direccion { get; set; }
+        public string Calle { get; set; }
+
+        public string Numero { get; set; }
         
         public Localidad Localidad { get; set; }
 
-        public int Estado { get; set; }
+        public Provincia Provincia { get; set; }
+
+        public bool Estado { get; set; }
     }
 }
