@@ -51,7 +51,10 @@ namespace Sistema_Ferreteria
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FrmDetalleClientes frmDetalleClientes = new FrmDetalleClientes();
-            frmDetalleClientes.ShowDialog();
+            if (frmDetalleClientes.ShowDialog() == DialogResult.OK)
+            {
+                frmDetalleClientes.ShowDialog();
+            }
         }
 
         private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
