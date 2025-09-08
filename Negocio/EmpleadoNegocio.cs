@@ -2,9 +2,12 @@
 using Dominio;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Negocio
 {
@@ -26,7 +29,7 @@ namespace Negocio
 
 					Empleado.EmpleadoId = (int)Datos.Lector["EmpleadoID"];
 					Empleado.Nombre = (string)Datos.Lector["NombreEmpleado"];
-					Empleado.Cuit = (string)Datos.Lector["Cuil"];
+					Empleado.Cuil = (string)Datos.Lector["Cuil"];
 					Empleado.Calle = (string)Datos.Lector["Calle"];
 					Empleado.Numero = (string)Datos.Lector["Numero"];
 					Empleado.Localidad = new Localidad();
@@ -54,6 +57,75 @@ namespace Negocio
 
 				throw ex;
 			}
+        }
+
+		public void Agregar(Empleado empleado)
+		{
+			try
+			{
+				AccesoDatos Datos = new AccesoDatos();
+
+				Datos.SetearProcedimiento("AgregarEmpleado");
+				Datos.SetearParametros("@Nombre" , empleado.Nombre);
+				Datos.SetearParametros("@Cuil" , empleado.Cuil);
+				Datos.SetearParametros("@Calle" , empleado.Calle);
+				Datos.SetearParametros("@Numero" , empleado.Numero);
+				Datos.SetearParametros("@Localidad_Id" , empleado.Localidad.LocalidadId);
+				Datos.SetearParametros("@Telefono" , empleado.Telefono);
+				Datos.SetearParametros("@Email" , empleado.Email);
+				Datos.SetearParametros("@Sucursal_Id" , empleado.Sucursal.SucursalId);
+				Datos.SetearParametroSalida("@Resultado", SqlDbType.NVarChar, 100);
+
+				Datos.EjecutarAccion();
+
+				string Mensaje = Datos.ObtenerParametroSalida("@Resultado").ToString();
+
+				MessageBox.Show(Mensaje);
+
+			}
+			catch (SqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+			catch (Exception ex)
+			{
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+		public void Modificar(Empleado empleado)
+		{
+            try
+            {
+                AccesoDatos Datos = new AccesoDatos();
+
+                Datos.SetearProcedimiento("ModificarEmpleado");
+				Datos.SetearParametros("@Empleado_Id", empleado.EmpleadoId);
+                Datos.SetearParametros("@Nombre", empleado.Nombre);
+                Datos.SetearParametros("@Cuil", empleado.Cuil);
+                Datos.SetearParametros("@Calle", empleado.Calle);
+                Datos.SetearParametros("@Numero", empleado.Numero);
+                Datos.SetearParametros("@Localidad_Id", empleado.Localidad.LocalidadId);
+                Datos.SetearParametros("@Telefono", empleado.Telefono);
+                Datos.SetearParametros("@Email", empleado.Email);
+                Datos.SetearParametros("@Sucursal_Id", empleado.Sucursal.SucursalId);
+                Datos.SetearParametroSalida("@Resultado", SqlDbType.NVarChar, 100);
+
+                Datos.EjecutarAccion();
+
+                string Mensaje = Datos.ObtenerParametroSalida("@Resultado").ToString();
+
+                MessageBox.Show(Mensaje);
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
     }

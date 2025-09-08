@@ -58,5 +58,10 @@ namespace Sistema_Ferreteria
             cboLocalidad.ValueMember = "LocalidadId";
             cboLocalidad.DisplayMember = "Nombre";
         }
+
+
+
+
+
     }
 }

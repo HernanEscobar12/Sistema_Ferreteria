@@ -73,6 +73,7 @@
             this.btnNuevo.TabIndex = 12;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // dgvEmpleados
             // 
@@ -96,7 +97,8 @@
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dgvEmpleados);
             this.Name = "FrmListadoEmpleados";
-            this.Text = "FrmEmpleados";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Listado de empleados";
             this.Load += new System.EventHandler(this.FrmListadoEmpleados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.ResumeLayout(false);

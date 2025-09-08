@@ -12,7 +12,7 @@ namespace Dominio
 
         public string Nombre { get; set; }
 
-        public string Cuit { get; set; }
+        public string Cuil { get; set; }
 
         public string Calle { get; set; }
         public string Numero { get; set; }

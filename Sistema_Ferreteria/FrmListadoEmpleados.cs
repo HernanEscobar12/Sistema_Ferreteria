@@ -41,7 +41,17 @@ namespace Sistema_Ferreteria
         private void dgvEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Empleado = (Empleado)dgvEmpleados.CurrentRow.DataBoundItem;
+            FrmDetallesEmpleados frmDetallesEmpleados = new FrmDetallesEmpleados(Empleado);
+            if(frmDetallesEmpleados.DialogResult  == DialogResult.OK)
+            {
+                Carga();
+            }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
             FrmDetallesEmpleados frmDetallesEmpleados = new FrmDetallesEmpleados();
+            frmDetallesEmpleados.Show();
         }
     }
 }
