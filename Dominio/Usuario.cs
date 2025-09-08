@@ -28,5 +28,10 @@ namespace Dominio
             Clave = Pass;
         }
 
+        public override string ToString()
+        {
+            return User.ToString();
+        }
+
     }
 }
