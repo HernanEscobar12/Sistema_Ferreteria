@@ -16,7 +16,7 @@ namespace Negocio
 			{
 				AccesoDatos Datos = new AccesoDatos();
 
-				Datos.SetearConsulta("select NombreUsuario, Clave from Usuario where NombreUsuario = @User and Clave =  @Pass");
+				Datos.SetearConsulta("select IdUsuario ,NombreUsuario ,Clave from Usuario where NombreUsuario = @User and Clave =  @Pass");
 				Datos.SetearParametros("@User" , usuario.User);
 				Datos.SetearParametros("@Pass", usuario.Clave);
                 Datos.EjecutarLectura();
@@ -25,9 +25,11 @@ namespace Negocio
 				{
 					usuario.User =	Datos.Lector["NombreUsuario"].ToString().ToUpper();
                     usuario.Clave = Datos.Lector["Clave"].ToString().ToUpper();
-				}
+                    usuario.IdUsuario = (int)Datos.Lector["IdUsuario"];
 
-				if (usuario != null)
+                }
+
+				if (usuario.IdUsuario != 0)
                 {
                     return true; // Login exitoso
                 }

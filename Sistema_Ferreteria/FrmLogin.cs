@@ -24,28 +24,46 @@ namespace Sistema_Ferreteria
             Usuario usuario = new Usuario(txtUser.Text.ToUpper(), TxtPass.Text.ToUpper());
             UsuarioNegocio UsuarioNegocio = new UsuarioNegocio();
 
-            if (UsuarioNegocio.Login(usuario))
+            if((string.IsNullOrEmpty(txtUser.Text) || string.IsNullOrEmpty(TxtPass.Text)))
             {
-                MessageBox.Show("Login extioso");
+                MessageBox.Show("Por favor complete todos los campos.");
+                return; // Salir del método si los campos están vacíos
             }
             else
             {
-                MessageBox.Show("Usuario Invalido");
+                if (UsuarioNegocio.Login(usuario))
+                {
+                    MessageBox.Show("Login extioso");
+
+                    FrmMenu FrmMenu = new FrmMenu();
+                    FrmMenu.ShowDialog();
+                    this.Hide();
+                }
+                else
+                {
+                    txtUser.BackColor = Color.Red;
+                    TxtPass.BackColor = Color.Red;
+                    MessageBox.Show("Usuario Invalido");
+                }
             }
 
             // Limpiar los campos de texto después del intento de inicio de sesión
-            txtUser.Clear();
-            TxtPass.Clear();
-            this.Hide();
-
-            FrmMenu FrmMenu = new FrmMenu();
-            FrmMenu.ShowDialog();
+            LimpiarCampos();
 
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        // Limpiar los campos de texto después del intento de inicio de sesión
+        private void LimpiarCampos()
+        {
+            txtUser.Clear();
+            TxtPass.Clear();
+            txtUser.BackColor = SystemColors.Window;
+            TxtPass.BackColor = SystemColors.Window;
         }
     }
 }
