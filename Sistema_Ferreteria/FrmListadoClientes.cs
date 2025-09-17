@@ -53,7 +53,7 @@ namespace Sistema_Ferreteria
             FrmDetalleClientes frmDetalleClientes = new FrmDetalleClientes();
             if (frmDetalleClientes.ShowDialog() == DialogResult.OK)
             {
-                frmDetalleClientes.ShowDialog();
+                Carga();
             }
         }
 

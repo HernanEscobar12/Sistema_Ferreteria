@@ -57,7 +57,7 @@ namespace Negocio
 
             try
             {
-                Datos.SetearConsulta("select IdCliente,\r\n\t\t\tC.Nombre as Cliente,\r\n\t\t\tC.Apellido as Apellido, \r\n\t\t\tC.Dni as Dni,\r\n\t\t\tc.Cuit as Cuit,\r\n\t\t\tc.Calle as Calle,\r\n\t\t\tc.Numero as Numero,\r\n\t\t\tC.Estado as Estado,\r\n\t\t\tL.Localidad_Id as LocalidadId,\r\n\t\t\tL.Nombre as Localidad,\r\n\t\t\tP.Provincia_Id as ProvinciaId,\r\n\t\t\tP.Nombre as Provincia\r\n\tfrom Cliente C \r\n\tinner join Localidad L on L.Localidad_Id = c.Localidad_Id\r\n\tinner join Provincia P on P.Provincia_Id = c.Localidad_Id\r\n\twhere C.Estado = 0\r\n\t");
+                Datos.SetearConsulta("select IdCliente,\r\n\t\t\tC.Nombre as Cliente,\r\n\t\t\tC.Apellido as Apellido, \r\n\t\t\tC.Dni as Dni,\r\n\t\t\tc.Cuit as Cuit,\r\n\t\t\tc.Calle as Calle,\r\n\t\t\tc.Numero as Numero,\r\n\t\t\tC.Estado as Estado,\r\n\t\t\tL.Localidad_Id as LocalidadId,\r\n\t\t\tL.Nombre as Localidad,\r\n\t\t\tP.Provincia_Id as ProvinciaId,\r\n\t\t\tP.Nombre as Provincia\r\n\tfrom Cliente C \r\n\tinner join Localidad L on L.Localidad_Id = c.Localidad_Id\r\n\tinner join Provincia P on P.Provincia_Id = L.Provincia_Id\r\n\twhere C.Estado = 0");
                 List<Cliente> ListadoClientes = new List<Cliente>();
 
                 Datos.EjecutarLectura();
@@ -70,13 +70,14 @@ namespace Negocio
                     cliente.Dni = Datos.Lector["Dni"].ToString();
                     cliente.Cuit = Datos.Lector["Cuit"].ToString();
                     cliente.Calle = (string)Datos.Lector["Calle"];
-                    cliente.Numero = (string)Datos.Lector["Numero"].ToString();;
+                    cliente.Numero = (string)Datos.Lector["Numero"].ToString();
                     cliente.Localidad = new Localidad();
                     cliente.Localidad.LocalidadId = (int)Datos.Lector["LocalidadId"];
                     cliente.Localidad.Nombre = (string)Datos.Lector["Localidad"].ToString();
                     cliente.Provincia = new Provincia();
                     cliente.Provincia.ProvinciaId = (int)Datos.Lector["ProvinciaId"];
                     cliente.Provincia.Nombre = (string)Datos.Lector["Provincia"];
+                    cliente.Estado = (bool)Datos.Lector["Estado"];
                     ListadoClientes.Add(cliente);
                 }
                 return ListadoClientes;
