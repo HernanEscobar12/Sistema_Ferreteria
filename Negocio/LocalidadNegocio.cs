@@ -37,5 +37,40 @@ namespace Negocio
 			}
         }
 
+
+		public List<Localidad> Listado()
+		{
+			try
+			{
+				AccesoDatos Datos = new AccesoDatos();
+				List<Localidad> Listado = new List<Localidad>();
+
+				Datos.SetearConsulta("select Localidad_Id, Provincia_Id, Nombre from Localidad");
+				Datos.EjecutarLectura();
+
+				while (Datos.Lector.Read())
+				{
+					Localidad Aux = new Localidad();
+					Aux.LocalidadId = (int)Datos.Lector["Localidad_Id"];
+					Aux.Provincia = new Provincia();
+					Aux.Provincia.ProvinciaId = (int)Datos.Lector["Provincia_Id"];
+					Aux.LocalidadId = (int)Datos.Lector["Localidad_Id"];
+					Aux.Nombre = (string)Datos.Lector["Nombre"];
+
+					Listado.Add(Aux);
+                }
+
+				return Listado;
+
+			}
+			catch (Exception ex)
+			{
+
+				throw ex;
+			}
+		}
+
+
+
     }
 }

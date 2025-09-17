@@ -52,6 +52,18 @@
     <Compile Include="FrmDetalleClientes.Designer.cs">
       <DependentUpon>FrmDetalleClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDetallesEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetallesEmpleados.Designer.cs">
+      <DependentUpon>FrmDetallesEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoEmpleados.Designer.cs">
+      <DependentUpon>FrmListadoEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListadoClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,8 +99,14 @@
     <EmbeddedResource Include="FrmDetalleClientes.resx">
       <DependentUpon>FrmDetalleClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetallesEmpleados.resx">
+      <DependentUpon>FrmDetallesEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoClientes.resx">
       <DependentUpon>FrmListadoClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoEmpleados.resx">
+      <DependentUpon>FrmListadoEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
