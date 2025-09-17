@@ -40,5 +40,11 @@ namespace Sistema_Ferreteria
             FrmListadoEmpleados frmListadoEmpleados = new FrmListadoEmpleados();
             frmListadoEmpleados.ShowDialog();
         }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            FrmListadoUsuarios frmListadoUsuarios = new FrmListadoUsuarios();
+            frmListadoUsuarios.ShowDialog();
+        }
     }
 }
