@@ -19,7 +19,6 @@ namespace Negocio
 			try
 			{
 				AccesoDatos Datos = new AccesoDatos();
-
 				List<Empleado> lista = new List<Empleado>();
 				Datos.SetearProcedimiento("ListarEmpleados");
 				Datos.EjecutarLectura();
@@ -32,13 +31,11 @@ namespace Negocio
 					Empleado.Cuil = (string)Datos.Lector["Cuil"];
 					Empleado.Calle = (string)Datos.Lector["Calle"];
 					Empleado.Numero = (string)Datos.Lector["Numero"];
+					Empleado.Estado = (bool)Datos.Lector["Estado"];
 					Empleado.Localidad = new Localidad();
 					Empleado.Localidad.LocalidadId = (int)Datos.Lector["IdLocalidad"];
 					Empleado.Localidad.Nombre = (string)Datos.Lector["Nombre"];
-					Empleado.Usuario = new Usuario();
-					Empleado.Usuario.IdUsuario = (int)Datos.Lector["IdUsuario"];
-					Empleado.Usuario.User = (string)Datos.Lector["NombreUsuario"];
-					Empleado.Cargo = new Cargo();
+                    Empleado.Cargo = new Cargo();
 					Empleado.Cargo.IdCargo = (int)Datos.Lector["IdCargo"];
 					Empleado.Cargo.Descripcion = (string)Datos.Lector["Cargo"];
 					Empleado.Telefono = (string)Datos.Lector["Telefono"];
@@ -59,6 +56,50 @@ namespace Negocio
 			}
         }
 
+		public List<Empleado> ListarInactivos()
+		{
+			try
+			{
+                AccesoDatos Datos = new AccesoDatos();
+
+                List<Empleado> lista = new List<Empleado>();
+                Datos.SetearConsulta("select Empleado_Id as EmpleadoID, \r\nE.Nombre As NombreEmpleado, \r\nCuil, \r\nCalle , \r\nNumero,\r\nE.Localidad_Id as IdLocalidad,\r\nL.Nombre as Nombre,\r\nC.Descripcion as Cargo ,\r\nC.IdCargo As IdCargo  , \r\nE.Telefono as Telefono ,\r\nEmail,\r\nS.Sucursal_Id as IdSucursal,\r\nS.Nombre as Sucursal,\r\nFecha_Alta as FechaAlta,\r\nE.Estado as Estado\r\nfrom Empleado E \r\ninner join Cargo C on C.IdCargo = e.IdCargo\r\ninner join Sucursal S on S.Sucursal_Id = E.Sucursal_Id\r\ninner join Localidad L on L.Localidad_Id = E.Localidad_Id\r\nwhere E.Estado = 0");
+                Datos.EjecutarLectura();
+                while (Datos.Lector.Read())
+                {
+                    Empleado Empleado = new Empleado();
+
+                    Empleado.EmpleadoId = (int)Datos.Lector["EmpleadoID"];
+                    Empleado.Nombre = (string)Datos.Lector["NombreEmpleado"];
+                    Empleado.Cuil = (string)Datos.Lector["Cuil"];
+                    Empleado.Calle = (string)Datos.Lector["Calle"];
+                    Empleado.Numero = (string)Datos.Lector["Numero"];
+                    Empleado.Estado = (bool)Datos.Lector["Estado"];
+                    Empleado.Localidad = new Localidad();
+                    Empleado.Localidad.LocalidadId = (int)Datos.Lector["IdLocalidad"];
+                    Empleado.Localidad.Nombre = (string)Datos.Lector["Nombre"];
+                    Empleado.Cargo = new Cargo();
+                    Empleado.Cargo.IdCargo = (int)Datos.Lector["IdCargo"];
+                    Empleado.Cargo.Descripcion = (string)Datos.Lector["Cargo"];
+                    Empleado.Telefono = (string)Datos.Lector["Telefono"];
+                    Empleado.Email = (string)Datos.Lector["Email"];
+                    Empleado.Sucursal = new Sucursal();
+                    Empleado.Sucursal.SucursalId = (int)Datos.Lector["IdSucursal"];
+                    Empleado.Sucursal.Nombre = (string)Datos.Lector["Sucursal"];
+                    Empleado.FechaAlta = (DateTime)Datos.Lector["FechaAlta"];
+                    
+					lista.Add(Empleado);
+                }
+
+                return lista;
+            }
+			catch (Exception ex)
+			{
+
+				throw ex;
+			}
+		}
+
 		public void Agregar(Empleado empleado)
 		{
 			try
@@ -74,7 +115,7 @@ namespace Negocio
 				Datos.SetearParametros("@Telefono" , empleado.Telefono);
 				Datos.SetearParametros("@Email" , empleado.Email);
 				Datos.SetearParametros("@Sucursal_Id" , empleado.Sucursal.SucursalId);
-				Datos.SetearParametroSalida("@Resultado", SqlDbType.NVarChar, 100);
+                Datos.SetearParametroSalida("@Resultado", SqlDbType.NVarChar, 100);
 
 				Datos.EjecutarAccion();
 
@@ -128,5 +169,44 @@ namespace Negocio
             }
         }
 
+		public void Inactivar(int id)
+		{
+			try
+			{
+				AccesoDatos Datos = new AccesoDatos();
+				Datos.SetearConsulta("update Empleado set Estado = 0 where Empleado_Id = @IdEmpleado");
+				Datos.SetearParametros("@IdEmpleado", id);
+				Datos.EjecutarAccion();
+
+			}
+			catch (SqlException ex)
+			{
+				throw ex;
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
+        public void Activar(int id)
+        {
+            try
+            {
+                AccesoDatos Datos = new AccesoDatos();
+                Datos.SetearConsulta("update Empleado set Estado = 1 where Empleado_Id = @IdEmpleado");
+                Datos.SetearParametros("@IdEmpleado", id);
+                Datos.EjecutarAccion();
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

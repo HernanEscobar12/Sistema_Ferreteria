@@ -26,6 +26,8 @@ namespace Sistema_Ferreteria
             this.Empleado = empleado;
 
             this.Text = "Detalles de " + empleado.Nombre;
+
+
             InitializeComponent();
             Carga();
             Estado();
@@ -70,7 +72,7 @@ namespace Sistema_Ferreteria
         private void Estado()
         {
 
-            if (!(Empleado.Estado))
+            if (Empleado.Estado)
             {
                 btnEstado.Text = "Inactivar";
                 btnEstado.BackColor = Color.Red;
@@ -85,35 +87,81 @@ namespace Sistema_Ferreteria
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (Empleado == null)
-                Empleado = new Empleado();
 
-
-            Empleado.Nombre = txtNombre.Text;
-            Empleado.Cuil = txtCuil.Text;
-            Empleado.Usuario = new Usuario();
-            Empleado.Calle = txtCalle.Text;
-            Empleado.Numero = txtNumero.Text;
-            Empleado.Localidad = (Localidad)cboLocalidad.SelectedItem;
-            Empleado.Sucursal = (Sucursal)cboSucursal.SelectedItem;
-
-
-            EmpleadoNegocio empleadoNegocio = new EmpleadoNegocio();
-
-            if (Empleado.EmpleadoId != 0)
+            if(string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtCuil.Text) || string.IsNullOrEmpty(txtCalle.Text) ||
+                string.IsNullOrEmpty(txtNumero.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtTelefono.Text)
+                )
             {
-                //MessageBox.Show("Modificar");
-                empleadoNegocio.Modificar(Empleado);
+                MessageBox.Show("Debes completar todos los campos");
             }
             else
             {
-                empleadoNegocio.Agregar(Empleado);
+                if (Empleado == null)
+                    Empleado = new Empleado();
+
+
+                Empleado.Nombre = txtNombre.Text;
+                Empleado.Cuil = txtCuil.Text;
+                Empleado.Telefono = txtTelefono.Text;
+                Empleado.Calle = txtCalle.Text;
+                Empleado.Numero = txtNumero.Text;
+                Empleado.Email = txtEmail.Text;
+                Empleado.Localidad = (Localidad)cboLocalidad.SelectedItem;
+                Empleado.Sucursal = (Sucursal)cboSucursal.SelectedItem;
+
+
+                EmpleadoNegocio empleadoNegocio = new EmpleadoNegocio();
+
+                if (Empleado.EmpleadoId != 0)
+                {
+                    //MessageBox.Show("Modificar");
+                    empleadoNegocio.Modificar(Empleado);
+
+                }
+                else
+                {
+                    empleadoNegocio.Agregar(Empleado);
+                }
+
+                this.DialogResult = DialogResult.OK;
             }
+
+           
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnEstado_Click(object sender, EventArgs e)
+        {
+            EmpleadoNegocio empleadoNegocio = new EmpleadoNegocio();
+
+            try
+            {
+                if (Empleado.Estado)
+                {
+                    empleadoNegocio.Inactivar(Empleado.EmpleadoId);
+                    MessageBox.Show("Empleado Inactivo");
+                }
+                else
+                {
+                    empleadoNegocio.Activar(Empleado.EmpleadoId);
+                    MessageBox.Show("Empleado Activo");
+                }
+                
+                DialogResult = DialogResult.OK;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
+
         }
     }
 }

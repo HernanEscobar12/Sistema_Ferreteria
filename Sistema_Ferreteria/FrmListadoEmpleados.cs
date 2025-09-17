@@ -35,6 +35,7 @@ namespace Sistema_Ferreteria
             // **** [Ocultar Columnas  -- IdEmpleado - Estado ] ****
             dgvEmpleados.Columns["EmpleadoId"].Visible = false;
             dgvEmpleados.Columns["Estado"].Visible = false;
+            //dgvEmpleados.Columns["Usuario"].Visible = false;
 
         }
 
@@ -42,7 +43,8 @@ namespace Sistema_Ferreteria
         {
             Empleado = (Empleado)dgvEmpleados.CurrentRow.DataBoundItem;
             FrmDetallesEmpleados frmDetallesEmpleados = new FrmDetallesEmpleados(Empleado);
-            if(frmDetallesEmpleados.DialogResult  == DialogResult.OK)
+           
+            if(frmDetallesEmpleados.ShowDialog()  == DialogResult.OK)
             {
                 Carga();
             }
@@ -51,7 +53,26 @@ namespace Sistema_Ferreteria
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FrmDetallesEmpleados frmDetallesEmpleados = new FrmDetallesEmpleados();
-            frmDetallesEmpleados.Show();
+            if(frmDetallesEmpleados.ShowDialog() == DialogResult.OK)
+            {
+                Carga();
+            }
+        }
+
+        private void btnActivos_Click(object sender, EventArgs e)
+        {
+            Carga();
+        }
+
+        private void btnInactivos_Click(object sender, EventArgs e)
+        {
+            EmpleadoNegocio empleadoNegocio = new EmpleadoNegocio();
+            dgvEmpleados.DataSource = empleadoNegocio.ListarInactivos();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

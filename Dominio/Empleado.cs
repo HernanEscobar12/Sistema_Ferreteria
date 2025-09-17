@@ -17,8 +17,6 @@ namespace Dominio
         public string Calle { get; set; }
         public string Numero { get; set; }
 
-        public Usuario Usuario { get; set; }
-
         public Localidad Localidad { get; set; }
 
         public Cargo Cargo { get; set; }

@@ -58,6 +58,7 @@ namespace Sistema_Ferreteria
         {
             Cliente = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
             FrmDetalleClientes frmDetalleClientes = new FrmDetalleClientes(Cliente);
+
             if (frmDetalleClientes.ShowDialog() == DialogResult.OK)
             {
                 Carga();

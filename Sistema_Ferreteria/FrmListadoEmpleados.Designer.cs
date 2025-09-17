@@ -45,6 +45,7 @@
             this.btnActivos.TabIndex = 15;
             this.btnActivos.Text = "Activos";
             this.btnActivos.UseVisualStyleBackColor = true;
+            this.btnActivos.Click += new System.EventHandler(this.btnActivos_Click);
             // 
             // btnInactivos
             // 
@@ -55,6 +56,7 @@
             this.btnInactivos.TabIndex = 14;
             this.btnInactivos.Text = "Inactivos";
             this.btnInactivos.UseVisualStyleBackColor = true;
+            this.btnInactivos.Click += new System.EventHandler(this.btnInactivos_Click);
             // 
             // btnSalir
             // 
@@ -64,6 +66,7 @@
             this.btnSalir.TabIndex = 13;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnNuevo
             // 
