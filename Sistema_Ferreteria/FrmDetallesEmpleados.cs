@@ -56,8 +56,8 @@ namespace Sistema_Ferreteria
             {
                 txtNombre.Text = Empleado.Nombre;
                 txtCuil.Text = Empleado.Cuil;
-                txtCalle.Text = Empleado.Calle;
-                txtNumero.Text = Empleado.Numero;
+                //txtCalle.Text = Empleado.Calle;
+                //txtNumero.Text = Empleado.Numero;
                 txtEmail.Text = Empleado.Email;
                 txtTelefono.Text = Empleado.Telefono;
                 cboLocalidad.SelectedValue = Empleado.Localidad.LocalidadId;
@@ -103,8 +103,8 @@ namespace Sistema_Ferreteria
                 Empleado.Nombre = txtNombre.Text;
                 Empleado.Cuil = txtCuil.Text;
                 Empleado.Telefono = txtTelefono.Text;
-                Empleado.Calle = txtCalle.Text;
-                Empleado.Numero = txtNumero.Text;
+                //Empleado.Calle = txtCalle.Text;
+                //Empleado.Numero = txtNumero.Text;
                 Empleado.Email = txtEmail.Text;
                 Empleado.Localidad = (Localidad)cboLocalidad.SelectedItem;
                 Empleado.Sucursal = (Sucursal)cboSucursal.SelectedItem;

@@ -43,8 +43,8 @@ namespace Sistema_Ferreteria
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            FrmListadoUsuarios frmListadoUsuarios = new FrmListadoUsuarios();
-            frmListadoUsuarios.ShowDialog();
+            FrmUsuarios frmUsuarios = new FrmUsuarios();
+            frmUsuarios.ShowDialog();
         }
     }
 }
