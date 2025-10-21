@@ -25,12 +25,11 @@ namespace Negocio
 				while (Datos.Lector.Read())
 				{
 					Empleado Empleado = new Empleado();
-
 					Empleado.EmpleadoId = (int)Datos.Lector["EmpleadoID"];
 					Empleado.Nombre = (string)Datos.Lector["NombreEmpleado"];
 					Empleado.Cuil = (string)Datos.Lector["Cuil"];
-					Empleado.Calle = (string)Datos.Lector["Calle"];
-					Empleado.Numero = (string)Datos.Lector["Numero"];
+					//Empleado.Calle = (string)Datos.Lector["Calle"];
+					//Empleado.Numero = (string)Datos.Lector["Numero"];
 					Empleado.Estado = (bool)Datos.Lector["Estado"];
 					Empleado.Localidad = new Localidad();
 					Empleado.Localidad.LocalidadId = (int)Datos.Lector["IdLocalidad"];
@@ -72,8 +71,8 @@ namespace Negocio
                     Empleado.EmpleadoId = (int)Datos.Lector["EmpleadoID"];
                     Empleado.Nombre = (string)Datos.Lector["NombreEmpleado"];
                     Empleado.Cuil = (string)Datos.Lector["Cuil"];
-                    Empleado.Calle = (string)Datos.Lector["Calle"];
-                    Empleado.Numero = (string)Datos.Lector["Numero"];
+                    //Empleado.Calle = (string)Datos.Lector["Calle"];
+                    //Empleado.Numero = (string)Datos.Lector["Numero"];
                     Empleado.Estado = (bool)Datos.Lector["Estado"];
                     Empleado.Localidad = new Localidad();
                     Empleado.Localidad.LocalidadId = (int)Datos.Lector["IdLocalidad"];
@@ -109,8 +108,8 @@ namespace Negocio
 				Datos.SetearProcedimiento("AgregarEmpleado");
 				Datos.SetearParametros("@Nombre" , empleado.Nombre);
 				Datos.SetearParametros("@Cuil" , empleado.Cuil);
-				Datos.SetearParametros("@Calle" , empleado.Calle);
-				Datos.SetearParametros("@Numero" , empleado.Numero);
+				//Datos.SetearParametros("@Calle" , empleado.Calle);
+				//Datos.SetearParametros("@Numero" , empleado.Numero);
 				Datos.SetearParametros("@Localidad_Id" , empleado.Localidad.LocalidadId);
 				Datos.SetearParametros("@Telefono" , empleado.Telefono);
 				Datos.SetearParametros("@Email" , empleado.Email);
@@ -144,8 +143,8 @@ namespace Negocio
 				Datos.SetearParametros("@Empleado_Id", empleado.EmpleadoId);
                 Datos.SetearParametros("@Nombre", empleado.Nombre);
                 Datos.SetearParametros("@Cuil", empleado.Cuil);
-                Datos.SetearParametros("@Calle", empleado.Calle);
-                Datos.SetearParametros("@Numero", empleado.Numero);
+                //Datos.SetearParametros("@Calle", empleado.Calle);
+                //Datos.SetearParametros("@Numero", empleado.Numero);
                 Datos.SetearParametros("@Localidad_Id", empleado.Localidad.LocalidadId);
                 Datos.SetearParametros("@Telefono", empleado.Telefono);
                 Datos.SetearParametros("@Email", empleado.Email);
