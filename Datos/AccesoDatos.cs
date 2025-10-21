@@ -57,6 +57,28 @@ namespace Datos
             return cmd.Parameters[nombre].Value;
         }
 
+        public void LimpiarParametros()
+        {
+            cmd.Parameters.Clear();
+        }
+
+        public object EjecutarEscalar()
+        {
+            cmd.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                return cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
 
 
 
