@@ -16,6 +16,12 @@ namespace Dominio
 
         public Cargo Cargo { get; set; }
 
+        public Empleado Empleado { get; set; }
+
+        public UsuarioRol UsuarioRol { get; set; }
+
+        public Rol Rol { get; set; }    
+
         public int Estado { get; set; }
 
         // Constructor Vacio
