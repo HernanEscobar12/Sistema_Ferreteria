@@ -6,16 +6,13 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Cargo
+    public class UsuarioRol
     {
-        public int IdCargo { get; set; }
-
-        public string Descripcion { get; set; }
-
+        public int IdUsuario {  get; set; }
 
         public override string ToString()
         {
-            return Descripcion;
+            return IdUsuario.ToString();
         }
     }
 }

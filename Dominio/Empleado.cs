@@ -12,10 +12,16 @@ namespace Dominio
 
         public string Nombre { get; set; }
 
-        public string Cuit { get; set; }
+        public string Cuil { get; set; }
+
+        //public string Calle { get; set; }
+        //public string Numero { get; set; }
+
         public Direccion Direccion { get; set; }
 
         public Localidad Localidad { get; set; }
+
+        public Cargo Cargo { get; set; }
 
         public string Telefono { get; set; }
 
@@ -25,6 +31,11 @@ namespace Dominio
 
         public DateTime FechaAlta { get; set; }
 
-        public int Estado { get; set; } 
+        public bool Estado { get; set; }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }

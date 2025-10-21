@@ -53,7 +53,7 @@ namespace Sistema_Ferreteria
             FrmDetalleClientes frmDetalleClientes = new FrmDetalleClientes();
             if (frmDetalleClientes.ShowDialog() == DialogResult.OK)
             {
-                frmDetalleClientes.ShowDialog();
+                Carga();
             }
         }
 
@@ -61,6 +61,7 @@ namespace Sistema_Ferreteria
         {
             Cliente = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
             FrmDetalleClientes frmDetalleClientes = new FrmDetalleClientes(Cliente);
+
             if (frmDetalleClientes.ShowDialog() == DialogResult.OK)
             {
                 Carga();

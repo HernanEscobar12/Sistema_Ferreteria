@@ -51,7 +51,12 @@ namespace Sistema_Ferreteria
             cboProvincia.ValueMember = "ProvinciaId";
             cboProvincia.DisplayMember = "Nombre";
 
-            if(Cliente != null)
+            LocalidadNegocio LocalidadNegocio = new LocalidadNegocio();
+            cboLocalidad.DataSource = LocalidadNegocio.Listado();
+            cboLocalidad.ValueMember = "LocalidadId";
+            cboLocalidad.DisplayMember = "Nombre";
+
+            if (Cliente != null)
             {
                 IdCLiente.Text = Cliente.IdCliente.ToString();
                 txtApellido.Text = Cliente.Apellido;
@@ -117,22 +122,24 @@ namespace Sistema_Ferreteria
                     Cliente.Calle = txtCalle.Text;
                     Cliente.Numero = txtNumero.Text;
                     Cliente.Localidad = (Localidad)cboLocalidad.SelectedItem;
+                    Cliente.Provincia = (Provincia)cboProvincia.SelectedItem;
                     Cliente.Cuit = txtCuit.Text;
 
 
                     if (Cliente.IdCliente == 0)
                     {
                         clienteNegocio.AgregarCliente(Cliente);
-                        MessageBox.Show("Cliente Agregado Exitosamente");
+                        
                     }
                     else
                     {
                         clienteNegocio.ModificarCliente(Cliente);
-                        MessageBox.Show("Cliente Modificado Exitosamente");
+    
                     }
 
-                    // Indicás que se cerró con éxito
                     this.DialogResult = DialogResult.OK;
+
+
                 }
 
                

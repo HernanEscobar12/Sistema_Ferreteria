@@ -46,11 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmDetalleUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetalleUsuarios.Designer.cs">
+      <DependentUpon>FrmDetalleUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDetalleClientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmDetalleClientes.Designer.cs">
       <DependentUpon>FrmDetalleClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetallesEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetallesEmpleados.Designer.cs">
+      <DependentUpon>FrmDetallesEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoEmpleados.Designer.cs">
+      <DependentUpon>FrmListadoEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmListadoClientes.cs">
       <SubType>Form</SubType>
@@ -82,13 +100,43 @@
     <Compile Include="FrmDetalleProducto.Designer.cs">
       <DependentUpon>FrmDetalleProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListadoUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoUsuarios.Designer.cs">
+      <DependentUpon>FrmListadoUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoSinUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoSinUsuarios.Designer.cs">
+      <DependentUpon>FrmListadoSinUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuarios.Designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmDetalleUsuarios.resx">
+      <DependentUpon>FrmDetalleUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalleClientes.resx">
       <DependentUpon>FrmDetalleClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetallesEmpleados.resx">
+      <DependentUpon>FrmDetallesEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoClientes.resx">
       <DependentUpon>FrmListadoClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoEmpleados.resx">
+      <DependentUpon>FrmListadoEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoUsuarios.resx">
+      <DependentUpon>FrmListadoUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -101,6 +149,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalleProducto.resx">
       <DependentUpon>FrmDetalleProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoSinUsuarios.resx">
+      <DependentUpon>FrmListadoSinUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuarios.resx">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

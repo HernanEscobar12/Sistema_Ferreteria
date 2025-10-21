@@ -57,11 +57,13 @@
     <Compile Include="ProductoUbicacion.cs" />
     <Compile Include="Proveedor.cs" />
     <Compile Include="Provincia.cs" />
+    <Compile Include="Rol.cs" />
     <Compile Include="Sucursal.cs" />
     <Compile Include="TipoPago.cs" />
     <Compile Include="UbicacionSucursal.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuarioRol.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -42,13 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CargoNegocio.cs" />
     <Compile Include="CategoriaNegocio.cs" />
     <Compile Include="ClienteNegocio.cs" />
+    <Compile Include="EmpleadoNegocio.cs" />
     <Compile Include="LocalidadNegocio.cs" />
     <Compile Include="ProductoNegocio.cs" />
     <Compile Include="ProvinciaNegocio.cs" />
+    <Compile Include="SucursalNegocio.cs" />
     <Compile Include="UsuarioNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilidades\Utilidad.cs" />
+    <Compile Include="Utilidades\Seguridad.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Datos\Datos.csproj">
