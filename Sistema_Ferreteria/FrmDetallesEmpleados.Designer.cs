@@ -32,6 +32,11 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEstado = new System.Windows.Forms.Button();
             this.gboDatos = new System.Windows.Forms.GroupBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.cboSucursal = new System.Windows.Forms.ComboBox();
             this.cboLocalidad = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,17 +48,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtCalle = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.cboCargo = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.gboDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(22, 393);
+            this.btnAceptar.Location = new System.Drawing.Point(24, 432);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(95, 41);
             this.btnAceptar.TabIndex = 18;
@@ -63,7 +65,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(455, 393);
+            this.btnCancelar.Location = new System.Drawing.Point(457, 432);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(95, 41);
             this.btnCancelar.TabIndex = 19;
@@ -73,7 +75,7 @@
             // 
             // btnEstado
             // 
-            this.btnEstado.Location = new System.Drawing.Point(231, 429);
+            this.btnEstado.Location = new System.Drawing.Point(233, 468);
             this.btnEstado.Name = "btnEstado";
             this.btnEstado.Size = new System.Drawing.Size(95, 41);
             this.btnEstado.TabIndex = 20;
@@ -83,6 +85,8 @@
             // gboDatos
             // 
             this.gboDatos.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gboDatos.Controls.Add(this.label7);
+            this.gboDatos.Controls.Add(this.cboCargo);
             this.gboDatos.Controls.Add(this.txtEmail);
             this.gboDatos.Controls.Add(this.txtTelefono);
             this.gboDatos.Controls.Add(this.label5);
@@ -103,10 +107,56 @@
             this.gboDatos.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboDatos.Location = new System.Drawing.Point(21, 37);
             this.gboDatos.Name = "gboDatos";
-            this.gboDatos.Size = new System.Drawing.Size(529, 340);
+            this.gboDatos.Size = new System.Drawing.Size(529, 378);
             this.gboDatos.TabIndex = 21;
             this.gboDatos.TabStop = false;
             this.gboDatos.Text = "Datos";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(276, 217);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(240, 27);
+            this.txtEmail.TabIndex = 25;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(16, 217);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(240, 27);
+            this.txtTelefono.TabIndex = 24;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(17, 192);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 22);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Telefono";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(274, 192);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 22);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Email";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(274, 253);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 22);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Sucursal";
             // 
             // cboSucursal
             // 
@@ -208,57 +258,30 @@
             this.txtCalle.Size = new System.Drawing.Size(240, 27);
             this.txtCalle.TabIndex = 9;
             // 
-            // label4
+            // cboCargo
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(274, 253);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 22);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Sucursal";
+            this.cboCargo.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCargo.FormattingEnabled = true;
+            this.cboCargo.Location = new System.Drawing.Point(134, 344);
+            this.cboCargo.Name = "cboCargo";
+            this.cboCargo.Size = new System.Drawing.Size(240, 28);
+            this.cboCargo.TabIndex = 26;
             // 
-            // txtEmail
+            // label7
             // 
-            this.txtEmail.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(276, 217);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(240, 27);
-            this.txtEmail.TabIndex = 25;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(16, 217);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(240, 27);
-            this.txtTelefono.TabIndex = 24;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 192);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 22);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Telefono";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(274, 192);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 22);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "Email";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(220, 319);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 22);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Cargo";
             // 
             // FrmDetallesEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 479);
+            this.ClientSize = new System.Drawing.Size(574, 530);
             this.Controls.Add(this.gboDatos);
             this.Controls.Add(this.btnEstado);
             this.Controls.Add(this.btnCancelar);
@@ -293,5 +316,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtCalle;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cboCargo;
     }
 }
