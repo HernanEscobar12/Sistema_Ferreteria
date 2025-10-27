@@ -1,5 +1,6 @@
 ﻿using Datos;
 using Dominio;
+using Negocio.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -32,14 +33,16 @@ namespace Negocio
                     cliente.Apellido = Datos.Lector["Apellido"].ToString();
                     cliente.Dni = Datos.Lector["Dni"].ToString();
                     cliente.Cuit = Datos.Lector["Cuit"].ToString();
-                    cliente.Calle = (string)Datos.Lector["Calle"];
-                    cliente.Numero = (string)Datos.Lector["Numero"].ToString();
-                    cliente.Localidad = new Localidad();
-                    cliente.Localidad.LocalidadId = (int)Datos.Lector["LocalidadId"];
-                    cliente.Localidad.Nombre = (string)Datos.Lector["Localidad"].ToString();
-                    cliente.Provincia = new Provincia();
-                    cliente.Provincia.ProvinciaId = (int)Datos.Lector["ProvinciaId"];
-                    cliente.Provincia.Nombre = (string)Datos.Lector["Provincia"];
+                    cliente.Direccion = new Direccion();
+                    cliente.Direccion.DireccionId = (int)Datos.Lector["DireccionId"];
+                    cliente.Direccion.Calle = (string)Datos.Lector["Calle"];
+                    cliente.Direccion.Numero = (string)Datos.Lector["Numero"].ToString();
+                    cliente.Direccion.Localidad = new Localidad();
+                    cliente.Direccion.Localidad.LocalidadId = (int)Datos.Lector["LocalidadId"];
+                    cliente.Direccion.Localidad.Nombre = (string)Datos.Lector["Localidad"].ToString();
+                    cliente.Direccion.Localidad.Provincia = new Provincia();
+                    cliente.Direccion.Localidad.Provincia.ProvinciaId = (int)Datos.Lector["ProvinciaId"];
+                    cliente.Direccion.Localidad.Provincia.Nombre = (string)Datos.Lector["Provincia"];
                     cliente.Estado = (bool)Datos.Lector["Estado"];
                     ListadoClientes.Add(cliente);
                 }
@@ -57,7 +60,7 @@ namespace Negocio
 
             try
             {
-                Datos.SetearConsulta("select IdCliente,\r\n\t\t\tC.Nombre as Cliente,\r\n\t\t\tC.Apellido as Apellido, \r\n\t\t\tC.Dni as Dni,\r\n\t\t\tc.Cuit as Cuit,\r\n\t\t\tc.Calle as Calle,\r\n\t\t\tc.Numero as Numero,\r\n\t\t\tC.Estado as Estado,\r\n\t\t\tL.Localidad_Id as LocalidadId,\r\n\t\t\tL.Nombre as Localidad,\r\n\t\t\tP.Provincia_Id as ProvinciaId,\r\n\t\t\tP.Nombre as Provincia\r\n\tfrom Cliente C \r\n\tinner join Localidad L on L.Localidad_Id = c.Localidad_Id\r\n\tinner join Provincia P on P.Provincia_Id = L.Provincia_Id\r\n\twhere C.Estado = 0");
+                Datos.SetearConsulta("SELECT \r\n        C.IdCliente,\r\n        C.Nombre AS Cliente,\r\n        C.Apellido,\r\n        C.Dni,\r\n        C.Cuit,\r\n        D.Direccion_Id AS DireccionId,\r\n        D.Calle,\r\n        D.Numero,\r\n        L.Localidad_Id AS LocalidadId,\r\n        L.Nombre AS Localidad,\r\n        P.Provincia_Id AS ProvinciaId,\r\n        P.Nombre AS Provincia,\r\n        C.Estado\r\n    FROM Cliente C\r\n    INNER JOIN Direccion D ON C.Direccion_Id = D.Direccion_Id\r\n    INNER JOIN Localidad L ON D.Localidad_Id = L.Localidad_Id\r\n    INNER JOIN Provincia P ON L.Provincia_Id = P.Provincia_Id\r\n    WHERE C.Estado = 0");
                 List<Cliente> ListadoClientes = new List<Cliente>();
 
                 Datos.EjecutarLectura();
@@ -69,14 +72,16 @@ namespace Negocio
                     cliente.Apellido = Datos.Lector["Apellido"].ToString();
                     cliente.Dni = Datos.Lector["Dni"].ToString();
                     cliente.Cuit = Datos.Lector["Cuit"].ToString();
-                    cliente.Calle = (string)Datos.Lector["Calle"];
-                    cliente.Numero = (string)Datos.Lector["Numero"].ToString();
-                    cliente.Localidad = new Localidad();
-                    cliente.Localidad.LocalidadId = (int)Datos.Lector["LocalidadId"];
-                    cliente.Localidad.Nombre = (string)Datos.Lector["Localidad"].ToString();
-                    cliente.Provincia = new Provincia();
-                    cliente.Provincia.ProvinciaId = (int)Datos.Lector["ProvinciaId"];
-                    cliente.Provincia.Nombre = (string)Datos.Lector["Provincia"];
+                    cliente.Direccion = new Direccion();
+                    cliente.Direccion.DireccionId = (int)Datos.Lector["DireccionId"];
+                    cliente.Direccion.Calle = (string)Datos.Lector["Calle"];
+                    cliente.Direccion.Numero = (string)Datos.Lector["Numero"].ToString();
+                    cliente.Direccion.Localidad = new Localidad();
+                    cliente.Direccion.Localidad.LocalidadId = (int)Datos.Lector["LocalidadId"];
+                    cliente.Direccion.Localidad.Nombre = (string)Datos.Lector["Localidad"].ToString();
+                    cliente.Direccion.Localidad.Provincia = new Provincia();
+                    cliente.Direccion.Localidad.Provincia.ProvinciaId = (int)Datos.Lector["ProvinciaId"];
+                    cliente.Direccion.Localidad.Provincia.Nombre = (string)Datos.Lector["Provincia"];
                     cliente.Estado = (bool)Datos.Lector["Estado"];
                     ListadoClientes.Add(cliente);
                 }
@@ -89,37 +94,79 @@ namespace Negocio
             }
         }
 
-        public void AgregarCliente (Cliente Cliente)
+
+        public List<Cliente> ListadoCompletoCliente()
         {
             AccesoDatos Datos = new AccesoDatos();
 
             try
             {
-                Datos.SetearProcedimiento("AgregarCliente");
-                Datos.SetearParametros("@Apellido" , Cliente.Apellido);
-                Datos.SetearParametros("@Nombre", Cliente.Nombre);
-                Datos.SetearParametros("@Dni", Cliente.Dni);
-                Datos.SetearParametros("@Cuit", Cliente.Cuit);
-                Datos.SetearParametros("@Calle", Cliente.Calle);
-                Datos.SetearParametros("@Numero", Cliente.Numero);
-                Datos.SetearParametros("@LocalidadID", Cliente.Localidad.LocalidadId);
-                Datos.SetearParametroSalida("@Resultado", SqlDbType.NVarChar, 100);
+                Datos.SetearConsulta("SELECT \r\n        C.IdCliente,\r\n        C.Nombre AS Cliente,\r\n        C.Apellido,\r\n        C.Dni,\r\n        C.Cuit,\r\n        D.Direccion_Id AS DireccionId,\r\n        D.Calle,\r\n        D.Numero,\r\n        L.Localidad_Id AS LocalidadId,\r\n        L.Nombre AS Localidad,\r\n        P.Provincia_Id AS ProvinciaId,\r\n        P.Nombre AS Provincia,\r\n        C.Estado\r\n    FROM Cliente C\r\n    INNER JOIN Direccion D ON C.Direccion_Id = D.Direccion_Id\r\n    INNER JOIN Localidad L ON D.Localidad_Id = L.Localidad_Id\r\n    INNER JOIN Provincia P ON L.Provincia_Id = P.Provincia_Id\r\n ");
+                List<Cliente> ListadoClientes = new List<Cliente>();
 
-                Datos.EjecutarAccion();
-
-                string Mensaje = Datos.ObtenerParametroSalida("@Resultado").ToString();
-                MessageBox.Show(Mensaje);
-            }
-            catch(SqlException ex)
-            {
-                MessageBox.Show(ex.ToString());
+                Datos.EjecutarLectura();
+                while (Datos.Lector.Read())
+                {
+                    Cliente cliente = new Cliente();
+                    cliente.IdCliente = (int)Datos.Lector["IdCliente"];
+                    cliente.Nombre = Datos.Lector["Cliente"].ToString();
+                    cliente.Apellido = Datos.Lector["Apellido"].ToString();
+                    cliente.Dni = Datos.Lector["Dni"].ToString();
+                    cliente.Cuit = Datos.Lector["Cuit"].ToString();
+                    cliente.Direccion = new Direccion();
+                    cliente.Direccion.DireccionId = (int)Datos.Lector["DireccionId"];
+                    cliente.Direccion.Calle = (string)Datos.Lector["Calle"];
+                    cliente.Direccion.Numero = (string)Datos.Lector["Numero"].ToString();
+                    cliente.Direccion.Localidad = new Localidad();
+                    cliente.Direccion.Localidad.LocalidadId = (int)Datos.Lector["LocalidadId"];
+                    cliente.Direccion.Localidad.Nombre = (string)Datos.Lector["Localidad"].ToString();
+                    cliente.Direccion.Localidad.Provincia = new Provincia();
+                    cliente.Direccion.Localidad.Provincia.ProvinciaId = (int)Datos.Lector["ProvinciaId"];
+                    cliente.Direccion.Localidad.Provincia.Nombre = (string)Datos.Lector["Provincia"];
+                    cliente.Estado = (bool)Datos.Lector["Estado"];
+                    ListadoClientes.Add(cliente);
+                }
+                return ListadoClientes;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
 
+                throw ex;
             }
         }
+
+        public void AgregarCliente(Cliente cliente)
+        {
+            AccesoDatos Datos = new AccesoDatos();
+
+            try
+            {
+                cliente.Cuit = Validaciones.FormatearCuil(cliente.Cuit);
+                Datos.SetearProcedimiento("AgregarCliente");
+                Datos.SetearParametros("@Apellido", cliente.Apellido);
+                Datos.SetearParametros("@Nombre", cliente.Nombre);
+                Datos.SetearParametros("@Dni", cliente.Dni);
+                Datos.SetearParametros("@Cuit", cliente.Cuit);
+                Datos.SetearParametros("@Calle", cliente.Direccion.Calle);
+                Datos.SetearParametros("@Numero", cliente.Direccion.Numero);
+                Datos.SetearParametros("@LocalidadID", cliente.Direccion.Localidad.LocalidadId);
+                Datos.SetearParametroSalida("@Resultado", SqlDbType.NVarChar, 200);
+
+                Datos.EjecutarAccion();
+
+                string mensaje = Datos.ObtenerParametroSalida("@Resultado").ToString();
+                MessageBox.Show(mensaje);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error SQL: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error general: " + ex.Message);
+            }
+        }
+
 
         public void ModificarCliente(Cliente Cliente)
         {
@@ -133,9 +180,9 @@ namespace Negocio
                 Datos.SetearParametros("@Nombre", Cliente.Nombre);
                 Datos.SetearParametros("@Dni", Cliente.Dni);
                 Datos.SetearParametros("@Cuit", Cliente.Cuit);
-                Datos.SetearParametros("@Calle", Cliente.Calle);
-                Datos.SetearParametros("@Numero", Cliente.Numero);
-                Datos.SetearParametros("@LocalidadID", Cliente.Localidad.LocalidadId);
+                Datos.SetearParametros("@Calle", Cliente.Direccion.Calle);
+                Datos.SetearParametros("@Numero", Cliente.Direccion.Numero);
+                Datos.SetearParametros("@LocalidadID", Cliente.Direccion.Localidad.LocalidadId);
                 Datos.SetearParametroSalida("@Resultado", SqlDbType.NVarChar, 100);
 
                 Datos.EjecutarAccion();

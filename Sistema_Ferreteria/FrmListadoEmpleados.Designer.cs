@@ -35,6 +35,7 @@
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pnFiltroAvanzado = new System.Windows.Forms.Panel();
+            this.btnReiniciar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.txtFiltroSimple = new System.Windows.Forms.TextBox();
             this.rbFiltroSimple = new System.Windows.Forms.RadioButton();
             this.rbFiltroAvanzado = new System.Windows.Forms.RadioButton();
-            this.btnReiniciar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.pnFiltroAvanzado.SuspendLayout();
@@ -134,6 +134,16 @@
             this.pnFiltroAvanzado.Size = new System.Drawing.Size(836, 66);
             this.pnFiltroAvanzado.TabIndex = 18;
             this.pnFiltroAvanzado.Visible = false;
+            // 
+            // btnReiniciar
+            // 
+            this.btnReiniciar.Location = new System.Drawing.Point(690, 12);
+            this.btnReiniciar.Name = "btnReiniciar";
+            this.btnReiniciar.Size = new System.Drawing.Size(134, 44);
+            this.btnReiniciar.TabIndex = 6;
+            this.btnReiniciar.Text = "Todos";
+            this.btnReiniciar.UseVisualStyleBackColor = true;
+            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
             // label4
             // 
@@ -247,16 +257,6 @@
             this.rbFiltroAvanzado.Text = "Filtro Avanzado";
             this.rbFiltroAvanzado.UseVisualStyleBackColor = true;
             this.rbFiltroAvanzado.CheckedChanged += new System.EventHandler(this.rbFiltroAvanzado_CheckedChanged);
-            // 
-            // btnReiniciar
-            // 
-            this.btnReiniciar.Location = new System.Drawing.Point(690, 12);
-            this.btnReiniciar.Name = "btnReiniciar";
-            this.btnReiniciar.Size = new System.Drawing.Size(134, 44);
-            this.btnReiniciar.TabIndex = 6;
-            this.btnReiniciar.Text = "Todos";
-            this.btnReiniciar.UseVisualStyleBackColor = true;
-            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
             // FrmListadoEmpleados
             // 

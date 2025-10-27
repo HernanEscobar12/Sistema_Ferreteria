@@ -1,5 +1,6 @@
 ﻿using Dominio;
 using Negocio;
+using Negocio.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,10 +64,10 @@ namespace Sistema_Ferreteria
                 txtNombre.Text = Cliente.Nombre;
                 txtDni.Text = Cliente.Dni.ToString();
                 txtCuit.Text = Cliente.Cuit.ToString();
-                txtCalle.Text = Cliente.Calle.ToString();
-                txtNumero.Text = Cliente.Numero.ToString();
-                cboProvincia.SelectedValue = Cliente.Provincia.ProvinciaId;
-                cboLocalidad.SelectedValue = Cliente.Localidad.LocalidadId;
+                txtCalle.Text = Cliente.Direccion.Calle.ToString();
+                txtNumero.Text = Cliente.Direccion.Numero.ToString();
+                cboProvincia.SelectedValue = Cliente.Direccion.Localidad.Provincia.ProvinciaId;
+                cboLocalidad.SelectedValue = Cliente.Direccion.Localidad.LocalidadId;
             }
 
         }
@@ -119,10 +120,11 @@ namespace Sistema_Ferreteria
                     Cliente.Nombre = txtNombre.Text;
                     Cliente.Apellido = txtApellido.Text;
                     Cliente.Dni = txtDni.Text;
-                    Cliente.Calle = txtCalle.Text;
-                    Cliente.Numero = txtNumero.Text;
-                    Cliente.Localidad = (Localidad)cboLocalidad.SelectedItem;
-                    Cliente.Provincia = (Provincia)cboProvincia.SelectedItem;
+                    Cliente.Direccion = new Direccion();
+                    Cliente.Direccion.Calle = txtCalle.Text;
+                    Cliente.Direccion.Numero = txtNumero.Text;
+                    Cliente.Direccion.Localidad = (Localidad)cboLocalidad.SelectedItem;
+                    Cliente.Direccion.Localidad.Provincia = (Provincia)cboProvincia.SelectedItem;
                     Cliente.Cuit = txtCuit.Text;
 
 
@@ -168,6 +170,25 @@ namespace Sistema_Ferreteria
                 this.DialogResult = DialogResult.OK;
 
             }
+        }
+
+        private void txtCuit_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                txtCuit.Text = Validaciones.FormatearCuil(txtCuit.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                txtCuit.Focus();
+            }
+        }
+
+        private void txtDni_Leave(object sender, EventArgs e)
+        {
+                if (!Validaciones.EsSoloNumerico(txtDni.Text))
+                   MessageBox.Show("Dni Solo numeros");
         }
     }
 }
