@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Sistema_Ferreteria</RootNamespace>
     <AssemblyName>Sistema_Ferreteria</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -164,6 +165,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -187,6 +189,51 @@
       <Project>{7a14c6f9-3174-448a-ae3b-177a1cdc671d}</Project>
       <Name>Negocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bannerFerr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bannerMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue-circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\briefcase-solid-full %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-check-solid-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-user-solid-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock-solid-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoFerr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\person-solid-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right-from-bracket-solid-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\screwdriver-wrench-solid-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shop-solid-full50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\triangle-exclamation-solid-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-solid-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wait.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -54,7 +54,7 @@ namespace Sistema_Ferreteria
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         // Limpiar los campos de texto después del intento de inicio de sesión

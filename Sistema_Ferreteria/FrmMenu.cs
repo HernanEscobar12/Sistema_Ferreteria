@@ -46,5 +46,12 @@ namespace Sistema_Ferreteria
             FrmUsuarios frmUsuarios = new FrmUsuarios();
             frmUsuarios.ShowDialog();
         }
+
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.ShowDialog();
+        }
     }
 }
