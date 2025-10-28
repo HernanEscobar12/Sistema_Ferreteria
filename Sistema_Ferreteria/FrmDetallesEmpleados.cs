@@ -1,5 +1,6 @@
 ﻿using Dominio;
 using Negocio;
+using Negocio.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,15 +53,21 @@ namespace Sistema_Ferreteria
             cboSucursal.DisplayMember = "Nombre";
 
 
+            // Carga Combo Box Cargo
+            Utilidad utilidad = new Utilidad();
+            cboCargo.DataSource = utilidad.ListadoDeCargo();
+            cboCargo.ValueMember = "IdCargo";
+            cboCargo.DisplayMember = "Descripcion";
+
             if (Empleado != null)
             {
                 txtNombre.Text = Empleado.Nombre;
                 txtCuil.Text = Empleado.Cuil;
-                //txtCalle.Text = Empleado.Calle;
-                //txtNumero.Text = Empleado.Numero;
+                txtCalle.Text = Empleado.Direccion.Calle;
+                txtNumero.Text = Empleado.Direccion.Numero;
                 txtEmail.Text = Empleado.Email;
                 txtTelefono.Text = Empleado.Telefono;
-                cboLocalidad.SelectedValue = Empleado.Localidad.LocalidadId;
+                cboLocalidad.SelectedValue = Empleado.Direccion.Localidad.LocalidadId;
                 cboSucursal.SelectedValue = Empleado.Sucursal.SucursalId;
 
             }
@@ -103,11 +110,13 @@ namespace Sistema_Ferreteria
                 Empleado.Nombre = txtNombre.Text;
                 Empleado.Cuil = txtCuil.Text;
                 Empleado.Telefono = txtTelefono.Text;
-                //Empleado.Calle = txtCalle.Text;
-                //Empleado.Numero = txtNumero.Text;
+                Empleado.Direccion = new Direccion();
+                Empleado.Direccion.Calle = txtCalle.Text;
+                Empleado.Direccion.Numero = txtNumero.Text;
                 Empleado.Email = txtEmail.Text;
-                Empleado.Localidad = (Localidad)cboLocalidad.SelectedItem;
+                Empleado.Direccion.Localidad = (Localidad)cboLocalidad.SelectedItem;
                 Empleado.Sucursal = (Sucursal)cboSucursal.SelectedItem;
+                Empleado.Cargo = (Cargo)cboCargo.SelectedItem;
 
 
                 EmpleadoNegocio empleadoNegocio = new EmpleadoNegocio();

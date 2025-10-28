@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Negocio.Utilidades
 {
@@ -94,6 +95,33 @@ namespace Negocio.Utilidades
             {
 
                 throw ex;
+            }
+        }
+
+        public List<Localidad> ListadoLocalidad()
+        {
+            try
+            {
+                List<Localidad> localidades = new List<Localidad>();
+                AccesoDatos Datos = new AccesoDatos();
+                Datos.SetearConsulta("select Localidad_Id LocalidadId, Provincia_Id ProvinciaId, Nombre  from Localidad");
+                Datos.EjecutarLectura();
+                while (Datos.Lector.Read())
+                {
+                    Localidad Aux = new Localidad();
+                    Aux.LocalidadId = (int)Datos.Lector["LocalidadId"];
+                    Aux.Nombre = (string)Datos.Lector["Nombre"];
+                    Aux.Provincia = new Provincia();
+                    Aux.Provincia.ProvinciaId = (int)Datos.Lector["ProvinciaId"];
+
+                    localidades.Add(Aux);
+                }
+                return localidades;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex; 
             }
         }
     }

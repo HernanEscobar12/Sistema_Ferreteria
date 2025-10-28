@@ -14,12 +14,7 @@ namespace Dominio
 
         public string Cuil { get; set; }
 
-        //public string Calle { get; set; }
-        //public string Numero { get; set; }
-
         public Direccion Direccion { get; set; }
-
-        public Localidad Localidad { get; set; }
 
         public Cargo Cargo { get; set; }
 

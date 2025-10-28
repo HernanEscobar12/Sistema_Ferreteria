@@ -15,15 +15,9 @@ namespace Dominio
         public string Dni { get; set; }
 
         public string Cuit  { get; set; }
-
-        public string Calle { get; set; }
-
-        public string Numero { get; set; }
+       
+        public Direccion Direccion { get; set; }
         
-        public Localidad Localidad { get; set; }
-
-        public Provincia Provincia { get; set; }
-
         public bool Estado { get; set; }
     }
 }
