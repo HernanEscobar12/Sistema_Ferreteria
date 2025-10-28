@@ -10,8 +10,6 @@
 
         public Direccion Direccion { get; set; }    
 
-        public  Localidad Localidad { get; set; }
-
         public string Telefono { get; set; }
 
         public string Email { get; set; }
