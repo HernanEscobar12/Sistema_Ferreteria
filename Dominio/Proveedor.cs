@@ -14,6 +14,6 @@
 
         public string Email { get; set; }
 
-        public int Estado { get; set; }
+        public bool Estado { get; set; }
     }
 }
