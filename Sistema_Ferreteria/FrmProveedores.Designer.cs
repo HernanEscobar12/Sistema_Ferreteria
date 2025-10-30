@@ -31,9 +31,9 @@
             this.gboAvz = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtFiltroAvz = new System.Windows.Forms.TextBox();
-            this.rbIdEmpleado = new System.Windows.Forms.RadioButton();
+            this.rbIdProveedor = new System.Windows.Forms.RadioButton();
             this.rbCuil = new System.Windows.Forms.RadioButton();
-            this.rbNombre = new System.Windows.Forms.RadioButton();
+            this.rbRazonSocial = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chkFiltroAvanzada = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -58,9 +58,9 @@
             this.gboAvz.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.gboAvz.Controls.Add(this.btnBuscar);
             this.gboAvz.Controls.Add(this.txtFiltroAvz);
-            this.gboAvz.Controls.Add(this.rbIdEmpleado);
+            this.gboAvz.Controls.Add(this.rbIdProveedor);
             this.gboAvz.Controls.Add(this.rbCuil);
-            this.gboAvz.Controls.Add(this.rbNombre);
+            this.gboAvz.Controls.Add(this.rbRazonSocial);
             this.gboAvz.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboAvz.Location = new System.Drawing.Point(13, 368);
             this.gboAvz.Name = "gboAvz";
@@ -77,6 +77,7 @@
             this.btnBuscar.TabIndex = 23;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtFiltroAvz
             // 
@@ -86,16 +87,16 @@
             this.txtFiltroAvz.Size = new System.Drawing.Size(359, 31);
             this.txtFiltroAvz.TabIndex = 22;
             // 
-            // rbIdEmpleado
+            // rbIdProveedor
             // 
-            this.rbIdEmpleado.AutoSize = true;
-            this.rbIdEmpleado.Location = new System.Drawing.Point(189, 19);
-            this.rbIdEmpleado.Name = "rbIdEmpleado";
-            this.rbIdEmpleado.Size = new System.Drawing.Size(106, 20);
-            this.rbIdEmpleado.TabIndex = 2;
-            this.rbIdEmpleado.TabStop = true;
-            this.rbIdEmpleado.Text = "Id Proveedor ";
-            this.rbIdEmpleado.UseVisualStyleBackColor = true;
+            this.rbIdProveedor.AutoSize = true;
+            this.rbIdProveedor.Location = new System.Drawing.Point(189, 19);
+            this.rbIdProveedor.Name = "rbIdProveedor";
+            this.rbIdProveedor.Size = new System.Drawing.Size(106, 20);
+            this.rbIdProveedor.TabIndex = 2;
+            this.rbIdProveedor.TabStop = true;
+            this.rbIdProveedor.Text = "Id Proveedor ";
+            this.rbIdProveedor.UseVisualStyleBackColor = true;
             // 
             // rbCuil
             // 
@@ -108,16 +109,16 @@
             this.rbCuil.Text = "Cuit";
             this.rbCuil.UseVisualStyleBackColor = true;
             // 
-            // rbNombre
+            // rbRazonSocial
             // 
-            this.rbNombre.AutoSize = true;
-            this.rbNombre.Location = new System.Drawing.Point(6, 19);
-            this.rbNombre.Name = "rbNombre";
-            this.rbNombre.Size = new System.Drawing.Size(105, 20);
-            this.rbNombre.TabIndex = 0;
-            this.rbNombre.TabStop = true;
-            this.rbNombre.Text = "Razon Social";
-            this.rbNombre.UseVisualStyleBackColor = true;
+            this.rbRazonSocial.AutoSize = true;
+            this.rbRazonSocial.Location = new System.Drawing.Point(6, 19);
+            this.rbRazonSocial.Name = "rbRazonSocial";
+            this.rbRazonSocial.Size = new System.Drawing.Size(105, 20);
+            this.rbRazonSocial.TabIndex = 0;
+            this.rbRazonSocial.TabStop = true;
+            this.rbRazonSocial.Text = "Razon Social";
+            this.rbRazonSocial.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -168,6 +169,7 @@
             this.btnInactivos.TabIndex = 13;
             this.btnInactivos.Text = "Inactivos";
             this.btnInactivos.UseVisualStyleBackColor = true;
+            this.btnInactivos.Click += new System.EventHandler(this.btnInactivos_Click);
             // 
             // btnACtivos
             // 
@@ -177,6 +179,7 @@
             this.btnACtivos.TabIndex = 12;
             this.btnACtivos.Text = "Activos";
             this.btnACtivos.UseVisualStyleBackColor = true;
+            this.btnACtivos.Click += new System.EventHandler(this.btnACtivos_Click);
             // 
             // label4
             // 
@@ -196,6 +199,7 @@
             this.btnReiniciar.TabIndex = 10;
             this.btnReiniciar.Text = "Todos";
             this.btnReiniciar.UseVisualStyleBackColor = true;
+            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
             // label1
             // 
@@ -214,6 +218,7 @@
             this.cboLocalidad.Name = "cboLocalidad";
             this.cboLocalidad.Size = new System.Drawing.Size(161, 25);
             this.cboLocalidad.TabIndex = 3;
+            this.cboLocalidad.SelectedValueChanged += new System.EventHandler(this.cboLocalidad_SelectedValueChanged);
             // 
             // txtFiltroSimple
             // 
@@ -252,6 +257,7 @@
             this.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProveedores.Size = new System.Drawing.Size(681, 125);
             this.dgvProveedores.TabIndex = 28;
+            this.dgvProveedores.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellContentDoubleClick);
             // 
             // FrmProveedores
             // 
@@ -286,9 +292,9 @@
         private System.Windows.Forms.GroupBox gboAvz;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtFiltroAvz;
-        private System.Windows.Forms.RadioButton rbIdEmpleado;
+        private System.Windows.Forms.RadioButton rbIdProveedor;
         private System.Windows.Forms.RadioButton rbCuil;
-        private System.Windows.Forms.RadioButton rbNombre;
+        private System.Windows.Forms.RadioButton rbRazonSocial;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox chkFiltroAvanzada;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -298,9 +304,9 @@
         private System.Windows.Forms.Button btnReiniciar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboLocalidad;
-        private System.Windows.Forms.TextBox txtFiltroSimple;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DataGridView dgvProveedores;
+        private System.Windows.Forms.TextBox txtFiltroSimple;
     }
 }
