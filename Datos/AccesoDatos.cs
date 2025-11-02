@@ -9,122 +9,192 @@ using System.Threading.Tasks;
 
 namespace Datos
 {
-    public class AccesoDatos
+    using System;
+    using System.Configuration;
+    using System.Data;
+    using System.Data.SqlClient;
+
+    namespace Datos
     {
-        private SqlCommand cmd;
-
-        private SqlConnection conexion;
-
-        private SqlDataReader lector;
-
-        public SqlDataReader Lector
+        public class AccesoDatos
         {
-            get { return lector; }
-        }
+            private SqlCommand cmd;
+            private SqlConnection conexion;
+            private SqlDataReader lector;
+            private SqlTransaction transaccion;
 
-        public AccesoDatos()
-        {
-            conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-            cmd = new SqlCommand();
-        }
+            public SqlDataReader Lector => lector;
+            public SqlTransaction Transaccion => transaccion;
 
-        public void SetearConsulta(string consulta)
-        {
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = consulta;
-        }
-
-        public void SetearParametros(string Nombre, object Valor)
-        {
-            cmd.Parameters.AddWithValue(Nombre, Valor);
-        }
-
-        public void SetearProcedimiento(string Sp)
-        {
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.CommandText = Sp;
-        }
-
-        public void SetearParametroSalida(string nombre, SqlDbType tipo, int tamaño)
-        {
-            SqlParameter parametroSalida = new SqlParameter(nombre, tipo, tamaño);
-            parametroSalida.Direction = ParameterDirection.Output;
-            cmd.Parameters.Add(parametroSalida);
-        }
-
-        public object ObtenerParametroSalida(string nombre)
-        {
-            return cmd.Parameters[nombre].Value;
-        }
-
-        public void LimpiarParametros()
-        {
-            cmd.Parameters.Clear();
-        }
-
-        public object EjecutarEscalar()
-        {
-            cmd.Connection = conexion;
-            try
+            public AccesoDatos()
             {
-                conexion.Open();
-                return cmd.ExecuteScalar();
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+                cmd = new SqlCommand();
             }
-            catch (Exception ex)
+
+            // =========================================================
+            // 🔸 CONFIGURACIÓN
+            // =========================================================
+            public void SetearConsulta(string consulta)
             {
-                throw ex;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = consulta;
             }
-            finally
+
+            public void SetearProcedimiento(string sp)
             {
-                conexion.Close();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = sp;
             }
-        }
 
+            public void SetearParametros(string nombre, object valor)
+            {
+                cmd.Parameters.AddWithValue(nombre, valor ?? DBNull.Value);
+            }
 
+            public void SetearParametroSalida(string nombre, SqlDbType tipo, int tamaño)
+            {
+                SqlParameter parametroSalida = new SqlParameter(nombre, tipo, tamaño);
+                parametroSalida.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(parametroSalida);
+            }
 
-        public void EjecutarLectura()
-        {
-            try
+            public object ObtenerParametroSalida(string nombre)
+            {
+                return cmd.Parameters[nombre].Value;
+            }
+
+            public void LimpiarParametros()
+            {
+                cmd.Parameters.Clear();
+            }
+
+            // =========================================================
+            // 🔸 EJECUCIONES SIN TRANSACCIÓN
+            // =========================================================
+            public object EjecutarEscalar()
             {
                 cmd.Connection = conexion;
-                conexion.Open();
-                lector = cmd.ExecuteReader();
+                try
+                {
+                    conexion.Open();
+                    return cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al ejecutar escalar: " + ex.Message);
+                }
+                finally
+                {
+                    conexion.Close();
+                }
             }
-            catch (Exception ex)
-            {
 
-                throw ex;
+            public void EjecutarLectura()
+            {
+                try
+                {
+                    cmd.Connection = conexion;
+                    conexion.Open();
+                    lector = cmd.ExecuteReader();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al ejecutar lectura: " + ex.Message);
+                }
             }
-        }
 
-        public void EjecutarAccion()
-        {
-            cmd.Connection = conexion;
-            try
+            public void EjecutarAccion()
             {
-                conexion.Open();
-                cmd.ExecuteNonQuery();
+                cmd.Connection = conexion;
+                try
+                {
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al ejecutar acción: " + ex.Message);
+                }
+                finally
+                {
+                    conexion.Close();
+                }
             }
-            catch (Exception ex)
-            {
 
-                throw ex;
-            }
-            finally
+            // =========================================================
+            // 🔸 TRANSACCIONES
+            // =========================================================
+            public void IniciarTransaccion()
             {
+                if (conexion.State != ConnectionState.Open)
+                    conexion.Open();
+
+                transaccion = conexion.BeginTransaction();
+                cmd.Connection = conexion;      // ✅ conexión asignada
+                cmd.Transaction = transaccion;  // ✅ transacción activa
+            }
+
+            public void ConfirmarTransaccion()
+            {
+                transaccion?.Commit();
                 conexion.Close();
             }
-        }
 
-        public void CerrarConexion()
-        {
-            if (Lector != null)
+            public void RevertirTransaccion()
             {
-                Lector.Close();
+                transaccion?.Rollback();
+                conexion.Close();
+            }
+
+            public void EjecutarAccionTransaccion()
+            {
+                try
+                {
+                    cmd.Connection = conexion;      // ✅ conexión asegurada
+                    cmd.Transaction = transaccion;  // ✅ transacción asegurada
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al ejecutar acción con transacción: " + ex.Message);
+                }
+                finally
+                {
+                    LimpiarParametros();
+                }
+            }
+
+            public object EjecutarEscalarTransaccion()
+            {
+                try
+                {
+                    cmd.Connection = conexion;      // ✅ conexión asegurada
+                    cmd.Transaction = transaccion;  // ✅ transacción asegurada
+                    return cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al ejecutar escalar con transacción: " + ex.Message);
+                }
+                finally
+                {
+                    LimpiarParametros();
+                }
+            }
+
+            // =========================================================
+            // 🔸 UTILIDADES
+            // =========================================================
+            public void CerrarConexion()
+            {
+                if (lector != null)
+                    lector.Close();
+
                 conexion?.Close();
             }
         }
 
-
     }
+
 }
