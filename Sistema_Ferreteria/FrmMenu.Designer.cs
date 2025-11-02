@@ -35,6 +35,7 @@
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
             this.btnCompras = new System.Windows.Forms.Button();
+            this.btnVentas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -107,11 +108,22 @@
             this.btnCompras.UseVisualStyleBackColor = true;
             this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
             // 
+            // btnVentas
+            // 
+            this.btnVentas.Location = new System.Drawing.Point(604, 146);
+            this.btnVentas.Name = "btnVentas";
+            this.btnVentas.Size = new System.Drawing.Size(77, 80);
+            this.btnVentas.TabIndex = 8;
+            this.btnVentas.Text = "Ventas";
+            this.btnVentas.UseVisualStyleBackColor = true;
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnVentas);
             this.Controls.Add(this.btnCompras);
             this.Controls.Add(this.btnProveedores);
             this.Controls.Add(this.btnUsuarios);
@@ -136,5 +148,6 @@
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Button btnCompras;
+        private System.Windows.Forms.Button btnVentas;
     }
 }

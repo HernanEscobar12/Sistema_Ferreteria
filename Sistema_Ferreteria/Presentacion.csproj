@@ -88,6 +88,12 @@
     <Compile Include="FrmListadoClientes.Designer.cs">
       <DependentUpon>FrmListadoClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListadoVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoVentas.Designer.cs">
+      <DependentUpon>FrmListadoVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,12 @@
     <Compile Include="FrmUsuarios.Designer.cs">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVentas.Designer.cs">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCompras.resx">
@@ -168,6 +180,9 @@
     <EmbeddedResource Include="FrmListadoUsuarios.resx">
       <DependentUpon>FrmListadoUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoVentas.resx">
+      <DependentUpon>FrmListadoVentas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVentas.resx">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

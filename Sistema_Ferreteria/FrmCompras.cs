@@ -120,7 +120,7 @@ namespace Sistema_Ferreteria
             }
 
             Producto producto = (Producto)txtIdProveedor.Tag;
-             producto.PrecioCosto = Convert.ToDecimal(txtPrecioCosto.Text);
+            producto.PrecioCosto = Convert.ToDecimal(txtPrecioCosto.Text);
             decimal subtotal = producto.PrecioCosto * cantidad;
 
             dgvDetalleCompra.Rows.Add(
@@ -139,7 +139,7 @@ namespace Sistema_Ferreteria
             // 🔹 Foco al primer campo (para trabajar rápido)
             txtCodigo.Focus();
 
-            
+
         }
 
         private void ConfigurarGrillaDetalle()
@@ -272,6 +272,33 @@ namespace Sistema_Ferreteria
                 {
                     MessageBox.Show("Verifique los valores ingresados.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
+        }
+
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+            CompraNegocio compraNegocio = new CompraNegocio();
+            try
+            {
+                if (EsModificacion && CompraActual != null)
+                {
+                    var confirmResult = MessageBox.Show("¿Está seguro de que desea anular esta compra?", "Confirmar Anulación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        compraNegocio.AnularCompra(CompraActual.IdCompra);
+                        MessageBox.Show("Compra anulada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se puede anular una compra que no ha sido guardada.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al anular la compra: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

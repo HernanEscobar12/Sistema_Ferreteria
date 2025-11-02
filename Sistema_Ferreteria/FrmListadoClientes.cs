@@ -20,6 +20,18 @@ namespace Sistema_Ferreteria
         private Cliente Cliente = null;
         private List<Cliente> Clientes;
         private List<Cliente> ListaFiltrada;
+
+        private bool ModoSeleccion = false;
+        public Cliente ClienteSeleccionado { get; private set; }
+
+        public FrmListadoClientes(bool modoSeleccion = false)
+        {
+            InitializeComponent();
+            ModoSeleccion = modoSeleccion;
+        }
+
+
+
         public FrmListadoClientes()
         {
             InitializeComponent();
@@ -80,8 +92,18 @@ namespace Sistema_Ferreteria
         private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Cliente = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
-            FrmDetalleClientes frmDetalleClientes = new FrmDetalleClientes(Cliente);
 
+            // 🟢 Si está en modo selección, devolvemos el cliente y cerramos
+            if (ModoSeleccion)
+            {
+                ClienteSeleccionado = Cliente;
+                DialogResult = DialogResult.OK;
+                Close();
+                return;
+            }
+
+            // 🔵 Si no está en modo selección, abrimos el formulario de detalle
+            FrmDetalleClientes frmDetalleClientes = new FrmDetalleClientes(Cliente);
             if (frmDetalleClientes.ShowDialog() == DialogResult.OK)
             {
                 Carga(1);

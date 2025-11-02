@@ -67,6 +67,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnAnular = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCompra)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -281,7 +282,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(550, 697);
+            this.btnCancelar.Location = new System.Drawing.Point(550, 692);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(137, 40);
             this.btnCancelar.TabIndex = 7;
@@ -462,11 +463,22 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "Nombre";
             // 
+            // btnAnular
+            // 
+            this.btnAnular.Location = new System.Drawing.Point(315, 700);
+            this.btnAnular.Name = "btnAnular";
+            this.btnAnular.Size = new System.Drawing.Size(137, 35);
+            this.btnAnular.TabIndex = 19;
+            this.btnAnular.Text = "Anular";
+            this.btnAnular.UseVisualStyleBackColor = true;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
+            // 
             // FrmCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 749);
+            this.ClientSize = new System.Drawing.Size(802, 749);
+            this.Controls.Add(this.btnAnular);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnCancelar);
@@ -535,5 +547,6 @@
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnAnular;
     }
 }
