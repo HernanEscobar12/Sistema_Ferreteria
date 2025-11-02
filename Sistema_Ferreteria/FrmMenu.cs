@@ -52,5 +52,11 @@ namespace Sistema_Ferreteria
             FrmProveedores frmProveedores = new FrmProveedores();
             frmProveedores.ShowDialog();
         }
+
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+            FrmListadoCompras frmListadoCompras = new FrmListadoCompras();
+            frmListadoCompras.ShowDialog();
+        }
     }
 }

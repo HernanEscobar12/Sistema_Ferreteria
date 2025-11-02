@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCompras.Designer.cs">
+      <DependentUpon>FrmCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDetalleUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,12 @@
     </Compile>
     <Compile Include="FrmDetallesEmpleados.Designer.cs">
       <DependentUpon>FrmDetallesEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoCompras.Designer.cs">
+      <DependentUpon>FrmListadoCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmListadoEmpleados.cs">
       <SubType>Form</SubType>
@@ -132,6 +144,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCompras.resx">
+      <DependentUpon>FrmCompras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalleUsuarios.resx">
       <DependentUpon>FrmDetalleUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoClientes.resx">
       <DependentUpon>FrmListadoClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoCompras.resx">
+      <DependentUpon>FrmListadoCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoEmpleados.resx">
       <DependentUpon>FrmListadoEmpleados.cs</DependentUpon>

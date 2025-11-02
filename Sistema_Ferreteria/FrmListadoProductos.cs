@@ -14,45 +14,18 @@ namespace Sistema_Ferreteria
 {
     public partial class FrmListadoProductos : Form
     {
-        private Producto Producto = null;
-        public FrmListadoProductos()
+        private bool ModoSeleccion;
+        public Producto ProductoSeleccionado { get; private set; }
+
+        public FrmListadoProductos(bool modoSeleccion = false)
         {
             InitializeComponent();
+            ModoSeleccion = modoSeleccion;
         }
 
         private void FrmProductos_Load(object sender, EventArgs e)
         {
-
             Carga();
-            ProductoNegocio productoNegocio = new ProductoNegocio();
-            //dgvProductos.DataSource = productoNegocio.ListarProductos();
-            dgvProductos.DataSource = productoNegocio.Listado(); // Listado con StoredProcedure
-        }
-
-        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Producto = (Producto)dgvProductos.CurrentRow.DataBoundItem;
-            FrmDetalleProducto frmDetalleProducto = new FrmDetalleProducto(Producto);
-            if(frmDetalleProducto.ShowDialog() == DialogResult.OK)
-            {
-                Carga();
-            }
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            FrmDetalleProducto frmDetalleProducto = new FrmDetalleProducto();
-
-            if (frmDetalleProducto.ShowDialog() == DialogResult.OK)
-            {
-                Carga();
-            }
-
         }
 
         private void Carga()
@@ -63,18 +36,27 @@ namespace Sistema_Ferreteria
             btnInactivos.Enabled = true;
         }
 
-        private void btnInactivos_Click(object sender, EventArgs e)
+        private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ProductoNegocio productoNegocio = new ProductoNegocio();
-            dgvProductos.DataSource = null;
-            dgvProductos.DataSource = productoNegocio.ListarProductosInactivos();
-            btnInactivos.Enabled = false;
-            btnActivos.Visible = true;
-        }
+            if (e.RowIndex >= 0)
+            {
+                ProductoSeleccionado = (Producto)dgvProductos.Rows[e.RowIndex].DataBoundItem;
 
-        private void btnActivos_Click(object sender, EventArgs e)
-        {
-            Carga();
+                if (ModoSeleccion)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    FrmDetalleProducto frmDetalleProducto = new FrmDetalleProducto(ProductoSeleccionado);
+                    if (frmDetalleProducto.ShowDialog() == DialogResult.OK)
+                    {
+                        Carga();
+                    }
+                }
+            }
+
         }
     }
 }

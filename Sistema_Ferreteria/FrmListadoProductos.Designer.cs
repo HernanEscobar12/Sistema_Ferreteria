@@ -45,7 +45,7 @@
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductos.Size = new System.Drawing.Size(599, 238);
             this.dgvProductos.TabIndex = 0;
-            this.dgvProductos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
+            this.dgvProductos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellDoubleClick);
             // 
             // btnNuevo
             // 
@@ -55,7 +55,6 @@
             this.btnNuevo.TabIndex = 2;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnSalir
             // 
@@ -65,7 +64,6 @@
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnInactivos
             // 
@@ -76,7 +74,6 @@
             this.btnInactivos.TabIndex = 4;
             this.btnInactivos.Text = "Inactivos";
             this.btnInactivos.UseVisualStyleBackColor = true;
-            this.btnInactivos.Click += new System.EventHandler(this.btnInactivos_Click);
             // 
             // btnActivos
             // 
@@ -87,7 +84,6 @@
             this.btnActivos.TabIndex = 5;
             this.btnActivos.Text = "Activos";
             this.btnActivos.UseVisualStyleBackColor = true;
-            this.btnActivos.Click += new System.EventHandler(this.btnActivos_Click);
             // 
             // FrmListadoProductos
             // 

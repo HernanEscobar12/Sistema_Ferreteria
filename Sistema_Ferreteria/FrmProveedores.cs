@@ -18,7 +18,14 @@ namespace Sistema_Ferreteria
 
         private List<Proveedor> Proveedores;
         private bool Cargando = false;
-        private Proveedor ProveedorSeleccionado;
+        public Proveedor ProveedorSeleccionado;
+        private bool ModoSeleccion;
+
+        public FrmProveedores(bool modoSeleccion = false)
+        {
+            InitializeComponent();
+            ModoSeleccion = modoSeleccion;
+        }
 
         public FrmProveedores()
         {
@@ -138,11 +145,24 @@ namespace Sistema_Ferreteria
 
         private void dgvProveedores_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ProveedorSeleccionado = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
-            FrmDetallesProveedor detallesProveedor = new FrmDetallesProveedor(ProveedorSeleccionado);
-            if (detallesProveedor.ShowDialog() == DialogResult.OK)
+            if (e.RowIndex >= 0)
             {
-                Carga(1);
+                ProveedorSeleccionado = (Proveedor)dgvProveedores.Rows[e.RowIndex].DataBoundItem;
+
+                if (ModoSeleccion)
+                {
+                    // devolvemos el proveedor al formulario padre
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    FrmDetallesProveedor detallesProveedor = new FrmDetallesProveedor(ProveedorSeleccionado);
+                    if (detallesProveedor.ShowDialog() == DialogResult.OK)
+                    {
+                        Carga(1);
+                    }
+                }
             }
         }
 

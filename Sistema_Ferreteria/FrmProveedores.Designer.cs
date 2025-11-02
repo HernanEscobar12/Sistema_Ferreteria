@@ -47,6 +47,7 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvProveedores = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
             this.gboAvz.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -62,7 +63,7 @@
             this.gboAvz.Controls.Add(this.rbCuil);
             this.gboAvz.Controls.Add(this.rbRazonSocial);
             this.gboAvz.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboAvz.Location = new System.Drawing.Point(13, 368);
+            this.gboAvz.Location = new System.Drawing.Point(10, 407);
             this.gboAvz.Name = "gboAvz";
             this.gboAvz.Size = new System.Drawing.Size(681, 100);
             this.gboAvz.TabIndex = 33;
@@ -125,7 +126,7 @@
             this.groupBox2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.groupBox2.Controls.Add(this.chkFiltroAvanzada);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(13, 310);
+            this.groupBox2.Location = new System.Drawing.Point(13, 345);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(681, 42);
             this.groupBox2.TabIndex = 32;
@@ -230,7 +231,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(606, 474);
+            this.btnSalir.Location = new System.Drawing.Point(603, 513);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(88, 33);
             this.btnSalir.TabIndex = 30;
@@ -240,7 +241,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(13, 474);
+            this.btnNuevo.Location = new System.Drawing.Point(10, 513);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(88, 33);
             this.btnNuevo.TabIndex = 29;
@@ -259,19 +260,28 @@
             this.dgvProveedores.TabIndex = 28;
             this.dgvProveedores.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellContentDoubleClick);
             // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.Location = new System.Drawing.Point(16, 310);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(160, 29);
+            this.btnSeleccionar.TabIndex = 34;
+            this.btnSeleccionar.Text = "Seleccionar proveedor";
+            this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Visible = false;
+            // 
             // FrmProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 509);
+            this.ClientSize = new System.Drawing.Size(706, 552);
+            this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.gboAvz);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dgvProveedores);
-            this.MaximumSize = new System.Drawing.Size(721, 548);
-            this.MinimumSize = new System.Drawing.Size(721, 548);
             this.Name = "FrmProveedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proveedores";
@@ -308,5 +318,6 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DataGridView dgvProveedores;
         private System.Windows.Forms.TextBox txtFiltroSimple;
+        private System.Windows.Forms.Button btnSeleccionar;
     }
 }
