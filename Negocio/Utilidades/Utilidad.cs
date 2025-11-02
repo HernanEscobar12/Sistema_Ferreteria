@@ -1,4 +1,5 @@
 ﻿using Datos;
+using Datos.Datos;
 using Dominio;
 using System;
 using System.Collections.Generic;
@@ -98,6 +99,7 @@ namespace Negocio.Utilidades
             }
         }
 
+        // Localidades
         public List<Localidad> ListadoLocalidad()
         {
             try
@@ -122,6 +124,34 @@ namespace Negocio.Utilidades
             {
 
                 throw ex; 
+            }
+        }
+
+        // Estado Compra
+
+        public List<EstadoCompra> ListarEstadoCompras()
+        {
+            try
+            {
+                AccesoDatos Datos = new AccesoDatos();
+                List<EstadoCompra> lista = new List<EstadoCompra>();
+
+                Datos.SetearConsulta("select IdEstado, Descripcion from CompraEstado");
+                Datos.EjecutarLectura();
+
+                while (Datos.Lector.Read())
+                {
+                    EstadoCompra estado = new EstadoCompra();
+                    estado.IdEstadoCompra = Convert.ToInt32(Datos.Lector["IdEstado"]);
+                    estado.Descripcion = (string)Datos.Lector["Descripcion"];
+                    lista.Add(estado);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }

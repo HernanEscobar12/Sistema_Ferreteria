@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.CodeDom;
 using Negocio.Utilidades;
+using Datos.Datos;
 
 namespace Negocio
 {
