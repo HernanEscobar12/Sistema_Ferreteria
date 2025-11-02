@@ -49,6 +49,7 @@
     <Compile Include="DetallePedido.cs" />
     <Compile Include="Direccion.cs" />
     <Compile Include="Empleado.cs" />
+    <Compile Include="EstadoCompra.cs" />
     <Compile Include="Inventario.cs" />
     <Compile Include="Localidad.cs" />
     <Compile Include="Pago.cs" />

@@ -14,7 +14,7 @@
 
         public Categoria Categoria { get; set; }
 
-        public bool Estado { get; set; } 
-
+        public bool Estado { get; set; }
+        public decimal PrecioCosto { get; set; }
     }
 }

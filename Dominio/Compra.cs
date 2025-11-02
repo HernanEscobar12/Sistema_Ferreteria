@@ -9,6 +9,7 @@ namespace Dominio
     public class Compra
     {
         public int IdCompra { get; set; }
+       
         public Proveedor Proveedor { get; set; }
 
         public DateTime FechaCompra { get; set; }
@@ -16,8 +17,8 @@ namespace Dominio
         public Decimal Total { get; set; }
 
         public List<DetalleCompra> Detalles { get; set; }
-        public int Estado { get; set; }
 
+        public EstadoCompra EstadoCompra { get; set; }
 
     }
 }
