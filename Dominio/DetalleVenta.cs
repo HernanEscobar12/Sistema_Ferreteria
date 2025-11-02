@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class DetallePedido
+    public class DetalleVenta
     {
-        public int  IdDetallePedido {get ; set ;}
-        public Pedido Pedido { get; set; }
+        public int IdDetalleVenta { get ; set ;}
+        public Venta Pedido { get; set; }
         public Producto Producto { get; set; }
 
         public int Cantidad { get; set; }
@@ -20,15 +20,6 @@ namespace Dominio
         {
             get { return Cantidad * PrecioUnitario; }
         }
-
-        //public DetallePedido()
-        //{
-        //    Pedido = new Pedido();
-        //    Producto = new Producto();
-        //}
-
-
-
 
 
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,5 +20,16 @@ namespace Dominio
         public Direccion Direccion { get; set; }
         
         public bool Estado { get; set; }
+
+        
+        public string NombreCompleto
+        {
+            get { return Nombre + " " + Apellido; }
+        }
+
+        public override string ToString()
+        {
+           return NombreCompleto;
+        }
     }
 }

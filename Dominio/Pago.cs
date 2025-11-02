@@ -10,7 +10,7 @@ namespace Dominio
     {
         public int PagoId { get; set; } 
 
-        public Pedido Pedido { get; set; }
+        public Venta Pedido { get; set; }
 
         public TipoPago TipoPago { get; set; }
 

@@ -46,14 +46,15 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="Compra.cs" />
     <Compile Include="DetalleCompra.cs" />
-    <Compile Include="DetallePedido.cs" />
+    <Compile Include="DetalleVenta.cs" />
     <Compile Include="Direccion.cs" />
     <Compile Include="Empleado.cs" />
     <Compile Include="EstadoCompra.cs" />
+    <Compile Include="EstadoVenta.cs" />
     <Compile Include="Inventario.cs" />
     <Compile Include="Localidad.cs" />
     <Compile Include="Pago.cs" />
-    <Compile Include="Pedido.cs" />
+    <Compile Include="Venta.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="ProductoUbicacion.cs" />
     <Compile Include="Proveedor.cs" />
