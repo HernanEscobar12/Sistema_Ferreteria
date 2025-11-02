@@ -123,12 +123,11 @@ namespace Negocio.Utilidades
             catch (Exception ex)
             {
 
-                throw ex; 
+                throw ex;
             }
         }
 
         // Estado Compra
-
         public List<EstadoCompra> ListarEstadoCompras()
         {
             try
@@ -154,5 +153,32 @@ namespace Negocio.Utilidades
                 throw ex;
             }
         }
+
+        // Estado Venta
+        public List<EstadoVenta> ListarEstadoVentas()
+        {
+            try
+            {
+                AccesoDatos Datos = new AccesoDatos();
+                List<EstadoVenta> lista = new List<EstadoVenta>();
+                Datos.SetearConsulta("select IdEstado, Descripcion from PedidoEstado");
+                Datos.EjecutarLectura();
+                while (Datos.Lector.Read())
+                {
+                    EstadoVenta estado = new EstadoVenta();
+                    estado.IdEstadoVenta = Convert.ToInt32(Datos.Lector["IdEstado"]);
+                    estado.Descripcion = (string)Datos.Lector["Descripcion"];
+                    lista.Add(estado);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+
     }
 }
