@@ -1,4 +1,4 @@
-﻿using Datos.Datos;
+﻿using Datos;
 using Dominio;
 using System;
 using System.Collections.Generic;
@@ -65,28 +65,35 @@ ORDER BY c.Fecha_Compra DESC
 
             try
             {
+                // ✅ Verificar que haya una caja abierta antes de registrar la compra
+                CajaNegocio cajaNegocio = new CajaNegocio();
+                if (!cajaNegocio.HayCajaAbierta())
+                {
+                    throw new Exception("No hay una caja abierta. Debe abrir la caja antes de registrar una compra.");
+                }
+
                 datos.IniciarTransaccion();
 
-                // 1️⃣ Insertar cabecera y recuperar ID
+                // 1️⃣ Insertar cabecera y recuperar ID (⚙️ corregido: usamos SCOPE_IDENTITY())
                 datos.SetearConsulta(@"
-                    INSERT INTO Compra (Proveedor_Id, Fecha_Compra, Total, EstadoCompra)
-                    OUTPUT INSERTED.Compra_Id
-                    VALUES (@Proveedor_Id, @FechaCompra, @Total, @EstadoCompra)");
+            INSERT INTO Compra (Proveedor_Id, Fecha_Compra, Total, EstadoCompra)
+            VALUES (@Proveedor_Id, @FechaCompra, @Total, @EstadoCompra);
+            SELECT CAST(SCOPE_IDENTITY() AS INT);");   // ✅ reemplaza el OUTPUT INSERTED.Compra_Id
 
                 datos.SetearParametros("@Proveedor_Id", compra.Proveedor.ProveedorId);
                 datos.SetearParametros("@FechaCompra", compra.FechaCompra);
                 datos.SetearParametros("@Total", compra.Total);
                 datos.SetearParametros("@EstadoCompra", 2); // Recibida
 
-                int idCompra = (int)datos.EjecutarEscalarTransaccion();
+                int idCompra = Convert.ToInt32(datos.EjecutarEscalarTransaccion());
 
-                // 2️⃣ Insertar detalles y movimientos
+                // 2️⃣ Insertar detalles y movimientos de inventario
                 foreach (var detalle in compra.Detalles)
                 {
                     // DetalleCompra
                     datos.SetearConsulta(@"
-                        INSERT INTO DetalleCompra (Compra_Id, Producto_Id, Cantidad, PrecioUnitario)
-                        VALUES (@Compra_Id, @Producto_Id, @Cantidad, @PrecioUnitario)");
+                INSERT INTO DetalleCompra (Compra_Id, Producto_Id, Cantidad, PrecioUnitario)
+                VALUES (@Compra_Id, @Producto_Id, @Cantidad, @PrecioUnitario)");
 
                     datos.SetearParametros("@Compra_Id", idCompra);
                     datos.SetearParametros("@Producto_Id", detalle.Producto.ProductoId);
@@ -94,10 +101,12 @@ ORDER BY c.Fecha_Compra DESC
                     datos.SetearParametros("@PrecioUnitario", detalle.PrecioUnitario);
                     datos.EjecutarAccionTransaccion();
 
-                    // MovimientoInventario
+                    // MovimientoInventario (entrada)
                     datos.SetearConsulta(@"
-                        INSERT INTO MovimientoInventario (Producto_Id, Tipo, Cantidad, Origen, Referencia_Id)
-                        VALUES (@Producto_Id, 'E', @Cantidad, 'Compra', @Referencia_Id)");
+                INSERT INTO MovimientoInventario 
+(Producto_Id, Tipo, Cantidad, Origen, Referencia_Id, Sucursal_Id)
+VALUES (@Producto_Id, 'E', @Cantidad, 'Compra', @Referencia_Id, @Sucursal_Id);
+");
 
                     datos.SetearParametros("@Producto_Id", detalle.Producto.ProductoId);
                     datos.SetearParametros("@Cantidad", detalle.Cantidad);
@@ -112,13 +121,24 @@ ORDER BY c.Fecha_Compra DESC
                 datos.RevertirTransaccion();
                 throw new Exception("Error al registrar compra: " + ex.Message);
             }
+            finally
+            {
+                datos.CerrarConexion();
+            }
         }
-
+       
         public void ModificarCompra(Compra compra)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
+                // ✅ Verificar que haya una caja abierta antes de modificar la compra
+                CajaNegocio cajaNegocio = new CajaNegocio();
+                if (!cajaNegocio.HayCajaAbierta())
+                {
+                    throw new Exception("No hay una caja abierta. Debe abrir la caja antes de modificar una compra.");
+                }
+
                 datos.IniciarTransaccion();
 
                 // 1️⃣ Actualizar cabecera
@@ -135,13 +155,15 @@ ORDER BY c.Fecha_Compra DESC
                 datos.SetearParametros("@IdCompra", compra.IdCompra);
                 datos.EjecutarAccionTransaccion();
 
-                // 2️⃣ Opcional: eliminar detalles antiguos y volver a insertar
+                // 2️⃣ Eliminar detalles antiguos y volver a insertar
+                datos.LimpiarParametros();
                 datos.SetearConsulta("DELETE FROM DetalleCompra WHERE Compra_Id = @IdCompra");
                 datos.SetearParametros("@IdCompra", compra.IdCompra);
                 datos.EjecutarAccionTransaccion();
 
                 foreach (var d in compra.Detalles)
                 {
+                    datos.LimpiarParametros();
                     datos.SetearConsulta(@"
                 INSERT INTO DetalleCompra (Compra_Id, Producto_Id, Cantidad, PrecioUnitario)
                 VALUES (@Compra_Id, @Producto_Id, @Cantidad, @PrecioUnitario)");
@@ -160,7 +182,79 @@ ORDER BY c.Fecha_Compra DESC
                 datos.RevertirTransaccion();
                 throw new Exception("Error al modificar compra: " + ex.Message);
             }
+            finally
+            {
+                datos.CerrarConexion(); // ✅ asegura cierre de conexión
+            }
         }
+
+        public void AnularCompra(int idCompra)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                // ✅ Validar caja abierta
+                CajaNegocio cajaNegocio = new CajaNegocio();
+                if (!cajaNegocio.HayCajaAbierta())
+                {
+                    throw new Exception("No hay una caja abierta. Debe abrir la caja antes de anular una compra.");
+                }
+
+                datos.IniciarTransaccion();
+
+                // 1️⃣ Cambiar estado
+                datos.SetearConsulta("UPDATE Compra SET EstadoCompra = 4 WHERE Compra_Id = @Id");
+                datos.SetearParametros("@Id", idCompra);
+                datos.EjecutarAccionTransaccion();
+
+                // 2️⃣ Obtener productos para restar stock
+                List<(int productoId, int cantidad)> productos = new List<(int, int)>();
+
+                datos.LimpiarParametros();
+                datos.SetearConsulta("SELECT Producto_Id, Cantidad FROM DetalleCompra WHERE Compra_Id = @Id");
+                datos.SetearParametros("@Id", idCompra);
+                datos.EjecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    int productoId = Convert.ToInt32(datos.Lector["Producto_Id"]);
+                    int cantidad = Convert.ToInt32(datos.Lector["Cantidad"]);
+                    productos.Add((productoId, cantidad));
+                }
+
+                datos.Lector.Close();
+
+                // 3️⃣ Registrar movimiento inverso
+                foreach (var (productoId, cantidad) in productos)
+                {
+                    datos.LimpiarParametros();
+                    datos.SetearConsulta(@"
+                        INSERT INTO MovimientoInventario 
+(Producto_Id, Tipo, Cantidad, Origen, Referencia_Id, Sucursal_Id)
+VALUES (@Producto_Id, 'E', @Cantidad, 'Compra', @Referencia_Id, @Sucursal_Id);
+");
+
+                    datos.SetearParametros("@Producto_Id", productoId);
+                    datos.SetearParametros("@Cantidad", cantidad);
+                    datos.SetearParametros("@Referencia_Id", idCompra);
+                    datos.EjecutarAccionTransaccion();
+                }
+
+                datos.ConfirmarTransaccion();
+            }
+            catch (Exception ex)
+            {
+                datos.RevertirTransaccion();
+                throw new Exception("Error al anular compra: " + ex.Message);
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+    
+
+
         public void CambiarEstadoCompra(int idCompra, int nuevoEstado)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -174,52 +268,6 @@ ORDER BY c.Fecha_Compra DESC
             catch (Exception ex)
             {
                 throw new Exception("Error al cambiar estado de la compra: " + ex.Message);
-            }
-        }
-
-
-        public void AnularCompra(int idCompra)
-        {
-            AccesoDatos datos = new AccesoDatos();
-            try
-            {
-                datos.IniciarTransaccion();
-
-                // 1️⃣ Actualizar estado
-                datos.SetearConsulta("UPDATE Compra SET EstadoCompra = 4 WHERE Compra_Id = @Id");
-                datos.SetearParametros("@Id", idCompra);
-                datos.EjecutarAccionTransaccion();
-
-                // 2️⃣ Registrar salida de stock por cada producto comprado
-                datos.SetearConsulta(@"
-            SELECT Producto_Id, Cantidad 
-            FROM DetalleCompra WHERE Compra_Id = @Id");
-                datos.SetearParametros("@Id", idCompra);
-                datos.EjecutarLectura();  // abrir lectura
-
-                while (datos.Lector.Read())
-                {
-                    int productoId = (int)datos.Lector["Producto_Id"];
-                    int cantidad = (int)datos.Lector["Cantidad"];
-
-                    datos.LimpiarParametros();
-                    datos.SetearConsulta(@"
-                INSERT INTO MovimientoInventario (Producto_Id, Tipo, Cantidad, Origen, Referencia_Id)
-                VALUES (@Producto_Id, 'S', @Cantidad, 'AnulaciónCompra', @Referencia_Id)");
-
-                    datos.SetearParametros("@Producto_Id", productoId);
-                    datos.SetearParametros("@Cantidad", cantidad);
-                    datos.SetearParametros("@Referencia_Id", idCompra);
-                    datos.EjecutarAccionTransaccion();
-                }
-
-                datos.CerrarConexion();
-                datos.ConfirmarTransaccion();
-            }
-            catch (Exception ex)
-            {
-                datos.RevertirTransaccion();
-                throw new Exception("Error al anular la compra: " + ex.Message);
             }
         }
 

@@ -58,5 +58,14 @@ namespace Sistema_Ferreteria
             }
 
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            FrmDetalleProducto frmDetalleProducto = new FrmDetalleProducto();
+            if (frmDetalleProducto.ShowDialog() == DialogResult.OK)
+            {
+                Carga();
+            }
+        }
     }
 }

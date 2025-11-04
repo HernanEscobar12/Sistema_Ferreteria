@@ -1,4 +1,4 @@
-﻿using Datos.Datos;
+﻿using Datos;
 using Dominio;
 using System;
 using System.Collections.Generic;
@@ -74,43 +74,55 @@ ORDER BY v.Fecha_Pedido DESC;");
 
             try
             {
+                // ✅ Verificar que haya una caja abierta antes de registrar la venta
+                CajaNegocio cajaNegocio = new CajaNegocio();
+                if (!cajaNegocio.HayCajaAbierta())
+                {
+                    throw new Exception("No hay una caja abierta. Debe abrir la caja antes de registrar una venta.");
+                }
+
                 datos.IniciarTransaccion();
 
-                // 1️⃣ Insertar cabecera y recuperar ID
+                // 1️⃣ Insertar cabecera y recuperar ID (⚙️ corregido: sin OUTPUT)
                 datos.SetearConsulta(@"
-                    INSERT INTO Pedido (IdCliente, Fecha_Pedido, Total, EstadoVenta)
-                    OUTPUT INSERTED.Pedido_Id
-                    VALUES (@Cliente_Id, @FechaVenta, @Total, @EstadoVenta)");
+            INSERT INTO Pedido (IdCliente, Fecha_Pedido, Total, EstadoVenta)
+            VALUES (@Cliente_Id, @FechaVenta, @Total, @EstadoVenta);
+            SELECT CAST(SCOPE_IDENTITY() AS INT);");  // ✅ SCOPE_IDENTITY() reemplaza OUTPUT
 
                 datos.SetearParametros("@Cliente_Id", venta.Cliente.IdCliente);
                 datos.SetearParametros("@FechaVenta", venta.FechaVenta);
                 datos.SetearParametros("@Total", venta.Total);
                 datos.SetearParametros("@EstadoVenta", 3); // Pagada
 
-                int idVenta = (int)datos.EjecutarEscalarTransaccion();
+                int idVenta = Convert.ToInt32(datos.EjecutarEscalarTransaccion());
 
                 // 2️⃣ Insertar detalle y movimiento de stock
                 foreach (var detalle in venta.Detalles)
                 {
-                    // DetalleVenta
+                    // Detalle de la venta
+                    datos.LimpiarParametros();
                     datos.SetearConsulta(@"
-                        INSERT INTO DetallePedido (Pedido_Id, Producto_Id, Cantidad, PrecioUnitario)
-                        VALUES (@Pedido_Id, @Producto_Id, @Cantidad, @PrecioUnitario)");
+                INSERT INTO DetallePedido (Pedido_Id, Producto_Id, Cantidad, PrecioUnitario)
+                VALUES (@Pedido_Id, @Producto_Id, @Cantidad, @PrecioUnitario)");
 
                     datos.SetearParametros("@Pedido_Id", idVenta);
                     datos.SetearParametros("@Producto_Id", detalle.Producto.ProductoId);
                     datos.SetearParametros("@Cantidad", detalle.Cantidad);
                     datos.SetearParametros("@PrecioUnitario", detalle.PrecioUnitario);
                     datos.EjecutarAccionTransaccion();
-
+                    
                     // MovimientoInventario (salida)
+                    datos.LimpiarParametros();
                     datos.SetearConsulta(@"
-                        INSERT INTO MovimientoInventario (Producto_Id, Tipo, Cantidad, Origen, Referencia_Id)
-                        VALUES (@Producto_Id, 'S', @Cantidad, 'Venta', @Referencia_Id)");
+INSERT INTO MovimientoInventario 
+(Producto_Id, Tipo, Cantidad, Origen, Referencia_Id, Sucursal_Id, Usuario_Id )
+VALUES (@Producto_Id, 'S', @Cantidad, 'Venta', @Referencia_Id, @Sucursal_Id, @Usuario_Id)");
 
                     datos.SetearParametros("@Producto_Id", detalle.Producto.ProductoId);
                     datos.SetearParametros("@Cantidad", detalle.Cantidad);
                     datos.SetearParametros("@Referencia_Id", idVenta);
+                    datos.SetearParametros("@Sucursal_Id", SessionActual.Sucursal.SucursalId); // ✅ agregado
+                    datos.SetearParametros("@Usuario_Id", SessionActual.Usuario.IdUsuario); // ✅ agregado
                     datos.EjecutarAccionTransaccion();
                 }
 
@@ -121,6 +133,10 @@ ORDER BY v.Fecha_Pedido DESC;");
                 datos.RevertirTransaccion();
                 throw new Exception("Error al registrar venta: " + ex.Message);
             }
+            finally
+            {
+                datos.CerrarConexion();
+            }
         }
 
         // 🔹 Modificar venta existente
@@ -129,15 +145,22 @@ ORDER BY v.Fecha_Pedido DESC;");
             AccesoDatos datos = new AccesoDatos();
             try
             {
+                // ✅ Verificar caja abierta
+                CajaNegocio cajaNegocio = new CajaNegocio();
+                if (!cajaNegocio.HayCajaAbierta())
+                {
+                    throw new Exception("No hay una caja abierta. Debe abrir la caja antes de modificar una venta.");
+                }
+
                 datos.IniciarTransaccion();
 
                 // 1️⃣ Actualizar cabecera
                 datos.SetearConsulta(@"
-                    UPDATE Pedido 
-                    SET IdCliente = @Cliente_Id, 
-                        Fecha_Pedido = @FechaVenta, 
-                        Total = @Total
-                    WHERE Pedido_Id = @IdVenta");
+            UPDATE Pedido 
+            SET IdCliente = @Cliente_Id, 
+                Fecha_Pedido = @FechaVenta, 
+                Total = @Total
+            WHERE Pedido_Id = @IdVenta");
 
                 datos.SetearParametros("@Cliente_Id", venta.Cliente.IdCliente);
                 datos.SetearParametros("@FechaVenta", venta.FechaVenta);
@@ -145,16 +168,18 @@ ORDER BY v.Fecha_Pedido DESC;");
                 datos.SetearParametros("@IdVenta", venta.IdVenta);
                 datos.EjecutarAccionTransaccion();
 
-                // 2️⃣ Eliminar detalle anterior y volver a insertar
+                // 2️⃣ Eliminar detalles antiguos y volver a insertar
+                datos.LimpiarParametros();
                 datos.SetearConsulta("DELETE FROM DetallePedido WHERE Pedido_Id = @IdVenta");
                 datos.SetearParametros("@IdVenta", venta.IdVenta);
                 datos.EjecutarAccionTransaccion();
 
                 foreach (var d in venta.Detalles)
                 {
+                    datos.LimpiarParametros();
                     datos.SetearConsulta(@"
-                        INSERT INTO DetallePedido (Pedido_Id, Producto_Id, Cantidad, PrecioUnitario)
-                        VALUES (@Pedido_Id, @Producto_Id, @Cantidad, @PrecioUnitario)");
+                INSERT INTO DetallePedido (Pedido_Id, Producto_Id, Cantidad, PrecioUnitario)
+                VALUES (@Pedido_Id, @Producto_Id, @Cantidad, @PrecioUnitario)");
 
                     datos.SetearParametros("@Pedido_Id", venta.IdVenta);
                     datos.SetearParametros("@Producto_Id", d.Producto.ProductoId);
@@ -170,6 +195,10 @@ ORDER BY v.Fecha_Pedido DESC;");
                 datos.RevertirTransaccion();
                 throw new Exception("Error al modificar venta: " + ex.Message);
             }
+            finally
+            {
+                datos.CerrarConexion();
+            }
         }
 
         // 🔹 Anular venta
@@ -178,6 +207,13 @@ ORDER BY v.Fecha_Pedido DESC;");
             AccesoDatos datos = new AccesoDatos();
             try
             {
+                // ✅ Verificar caja abierta
+                CajaNegocio cajaNegocio = new CajaNegocio();
+                if (!cajaNegocio.HayCajaAbierta())
+                {
+                    throw new Exception("No hay una caja abierta. Debe abrir la caja antes de anular una venta.");
+                }
+
                 datos.IniciarTransaccion();
 
                 // 1️⃣ Cambiar estado
@@ -185,26 +221,36 @@ ORDER BY v.Fecha_Pedido DESC;");
                 datos.SetearParametros("@Id", idVenta);
                 datos.EjecutarAccionTransaccion();
 
-                // 2️⃣ Devolver productos al stock
-                datos.SetearConsulta(@"
-                    SELECT Producto_Id, Cantidad 
-                    FROM DetallePedido WHERE Pedido_Id = @Id");
+                // 2️⃣ Obtener productos para reponer stock
+                datos.LimpiarParametros();
+                datos.SetearConsulta("SELECT Producto_Id, Cantidad FROM DetallePedido WHERE Pedido_Id = @Id");
                 datos.SetearParametros("@Id", idVenta);
                 datos.EjecutarLectura();
 
+                List<(int productoId, int cantidad)> productos = new List<(int, int)>();
                 while (datos.Lector.Read())
                 {
-                    int productoId = (int)datos.Lector["Producto_Id"];
-                    int cantidad = (int)datos.Lector["Cantidad"];
+                    int productoId = Convert.ToInt32(datos.Lector["Producto_Id"]);
+                    int cantidad = Convert.ToInt32(datos.Lector["Cantidad"]);
+                    productos.Add((productoId, cantidad));
+                }
+                datos.Lector.Close(); // ✅ muy importante
 
+                // 3️⃣ Registrar entradas al inventario
+                foreach (var (productoId, cantidad) in productos)
+                {
                     datos.LimpiarParametros();
                     datos.SetearConsulta(@"
-                        INSERT INTO MovimientoInventario (Producto_Id, Tipo, Cantidad, Origen, Referencia_Id)
-                        VALUES (@Producto_Id, 'E', @Cantidad, 'AnulaciónVenta', @Referencia_Id)");
+                INSERT INTO MovimientoInventario 
+(Producto_Id, Tipo, Cantidad, Origen, Referencia_Id, Sucursal_Id)
+VALUES (@Producto_Id, 'E', @Cantidad, 'Compra', @Referencia_Id, @Sucursal_Id , @Usuario_Id);
+");
 
                     datos.SetearParametros("@Producto_Id", productoId);
                     datos.SetearParametros("@Cantidad", cantidad);
                     datos.SetearParametros("@Referencia_Id", idVenta);
+                    datos.SetearParametros("@Sucursal_Id", SessionActual.Sucursal.SucursalId);
+                    datos.SetearParametros("@Usuario_Id", SessionActual.Sucursal.SucursalId);
                     datos.EjecutarAccionTransaccion();
                 }
 
@@ -214,6 +260,10 @@ ORDER BY v.Fecha_Pedido DESC;");
             {
                 datos.RevertirTransaccion();
                 throw new Exception("Error al anular la venta: " + ex.Message);
+            }
+            finally
+            {
+                datos.CerrarConexion();
             }
         }
 

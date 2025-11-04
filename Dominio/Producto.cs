@@ -1,4 +1,6 @@
-﻿namespace Dominio
+﻿using System.Security.Cryptography;
+
+namespace Dominio
 {
     public class Producto
     {
@@ -15,6 +17,14 @@
         public Categoria Categoria { get; set; }
 
         public bool Estado { get; set; }
+        public int StockMinimo { get ; set; }
+        public int StockActual { get ; set; }
+        public string EstadoStock { get ; set; }
         public decimal PrecioCosto { get; set; }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }

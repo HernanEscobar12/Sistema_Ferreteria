@@ -1,5 +1,4 @@
 ﻿using Datos;
-using Datos.Datos;
 using Dominio;
 using System;
 using System.Collections.Generic;
@@ -179,6 +178,10 @@ namespace Negocio.Utilidades
 
         }
 
-
+        public static class SessionActual
+        {
+            public static Usuario Usuario { get; set; }
+            public static Sucursal Sucursal { get; set; }
+        }
     }
 }

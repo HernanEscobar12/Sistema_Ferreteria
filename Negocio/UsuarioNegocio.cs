@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.CodeDom;
 using Negocio.Utilidades;
-using Datos.Datos;
 
 namespace Negocio
 {
@@ -23,7 +22,7 @@ namespace Negocio
 
                 string ClaveEncriptada = Seguridad.Encriptar(usuario.Clave);
 
-                Datos.SetearConsulta("select IdUsuario ,NombreUsuario ,Clave from Usuario where NombreUsuario = @User and Clave =  @Pass");
+                Datos.SetearConsulta("select IdUsuario ,NombreUsuario ,Clave, E.Sucursal_Id IdSucursal,  S.Nombre Sucursal\r\nfrom Usuario U \r\ninner join Empleado E on U.EmpleadoId = U.EmpleadoId\r\ninner join Sucursal S on s.Sucursal_Id = E.Sucursal_Id\r\n where NombreUsuario = @User and Clave =  @Pass");
                 Datos.SetearParametros("@User", usuario.User);
                 Datos.SetearParametros("@Pass", ClaveEncriptada);
 
@@ -33,6 +32,10 @@ namespace Negocio
                 {
                     usuario.User = Datos.Lector["NombreUsuario"].ToString().ToUpper();
                     usuario.IdUsuario = (int)Datos.Lector["IdUsuario"];
+                    usuario.Empleado = new Empleado(); 
+                    usuario.Empleado.Sucursal = new Sucursal();
+                    usuario.Empleado.Sucursal.SucursalId = (int)Datos.Lector["IdSucursal"];
+                    usuario.Empleado.Sucursal.Nombre = Datos.Lector["Sucursal"].ToString();
 
                 }
 

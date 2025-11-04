@@ -33,9 +33,10 @@ namespace Sistema_Ferreteria
             {
                 if (UsuarioNegocio.Login(usuario))
                 {
-                    MessageBox.Show("Login extioso");
+                    SessionActual.Usuario = usuario;
+                    SessionActual.Sucursal  = usuario.Empleado.Sucursal;
 
-                    FrmMenu FrmMenu = new FrmMenu();
+                    FrmMenu FrmMenu = new FrmMenu(usuario);
                     FrmMenu.ShowDialog();
                     this.Hide();
                 }
