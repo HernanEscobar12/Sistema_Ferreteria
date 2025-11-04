@@ -38,6 +38,9 @@
             // 
             // dgvInventario
             // 
+            this.dgvInventario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInventario.Location = new System.Drawing.Point(12, 103);
             this.dgvInventario.Name = "dgvInventario";
@@ -46,6 +49,7 @@
             // 
             // cbSucursal
             // 
+            this.cbSucursal.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbSucursal.FormattingEnabled = true;
             this.cbSucursal.Location = new System.Drawing.Point(469, 59);
             this.cbSucursal.Name = "cbSucursal";
@@ -55,9 +59,10 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(96, 295);
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizar.Location = new System.Drawing.Point(934, 46);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(110, 45);
+            this.btnActualizar.Size = new System.Drawing.Size(77, 45);
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -65,6 +70,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(486, 32);
@@ -75,12 +81,14 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(877, 295);
+            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalir.Location = new System.Drawing.Point(901, 287);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(110, 45);
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Visible = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // FrmInventario
