@@ -103,6 +103,16 @@ namespace Sistema_Ferreteria.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Carrito {
+            get {
+                object obj = ResourceManager.GetObject("Carrito", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap circle_check_solid_full {
             get {
                 object obj = ResourceManager.GetObject("circle-check-solid-full", resourceCulture);
@@ -196,6 +206,16 @@ namespace Sistema_Ferreteria.Properties {
         internal static System.Drawing.Bitmap user_solid_full {
             get {
                 object obj = ResourceManager.GetObject("user-solid-full", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Usuarios {
+            get {
+                object obj = ResourceManager.GetObject("Usuarios", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

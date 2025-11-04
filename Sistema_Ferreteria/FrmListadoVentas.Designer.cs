@@ -61,7 +61,7 @@
             // 
             // btnNuevaVenta
             // 
-            this.btnNuevaVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNuevaVenta.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnNuevaVenta.Location = new System.Drawing.Point(832, 265);
             this.btnNuevaVenta.Name = "btnNuevaVenta";
             this.btnNuevaVenta.Size = new System.Drawing.Size(99, 39);
