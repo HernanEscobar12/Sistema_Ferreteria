@@ -38,13 +38,26 @@
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnCaja = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
+            this.pnlMenu = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnlBtns = new System.Windows.Forms.Panel();
+            this.pnlUsuario = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.pnlForms = new System.Windows.Forms.Panel();
+            this.pnlMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlBtns.SuspendLayout();
+            this.pnlUsuario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(306, 39);
+            this.label1.Location = new System.Drawing.Point(524, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(198, 31);
             this.label1.TabIndex = 0;
@@ -52,9 +65,10 @@
             // 
             // btnProductos
             // 
-            this.btnProductos.Location = new System.Drawing.Point(48, 146);
+            this.btnProductos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProductos.Location = new System.Drawing.Point(0, 240);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(77, 80);
+            this.btnProductos.Size = new System.Drawing.Size(190, 40);
             this.btnProductos.TabIndex = 2;
             this.btnProductos.Text = "Productos";
             this.btnProductos.UseVisualStyleBackColor = true;
@@ -62,9 +76,10 @@
             // 
             // btnClientes
             // 
-            this.btnClientes.Location = new System.Drawing.Point(143, 146);
+            this.btnClientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnClientes.Location = new System.Drawing.Point(0, 200);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(77, 80);
+            this.btnClientes.Size = new System.Drawing.Size(190, 40);
             this.btnClientes.TabIndex = 3;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.UseVisualStyleBackColor = true;
@@ -72,9 +87,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(241, 146);
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.Location = new System.Drawing.Point(0, 160);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 80);
+            this.button1.Size = new System.Drawing.Size(190, 40);
             this.button1.TabIndex = 4;
             this.button1.Text = "Empleados";
             this.button1.UseVisualStyleBackColor = true;
@@ -82,9 +98,10 @@
             // 
             // btnUsuarios
             // 
-            this.btnUsuarios.Location = new System.Drawing.Point(336, 146);
+            this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUsuarios.Location = new System.Drawing.Point(0, 120);
             this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Size = new System.Drawing.Size(77, 80);
+            this.btnUsuarios.Size = new System.Drawing.Size(190, 40);
             this.btnUsuarios.TabIndex = 5;
             this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.UseVisualStyleBackColor = true;
@@ -92,9 +109,10 @@
             // 
             // btnProveedores
             // 
-            this.btnProveedores.Location = new System.Drawing.Point(427, 146);
+            this.btnProveedores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProveedores.Location = new System.Drawing.Point(0, 80);
             this.btnProveedores.Name = "btnProveedores";
-            this.btnProveedores.Size = new System.Drawing.Size(77, 80);
+            this.btnProveedores.Size = new System.Drawing.Size(190, 40);
             this.btnProveedores.TabIndex = 6;
             this.btnProveedores.Text = "Proveedores";
             this.btnProveedores.UseVisualStyleBackColor = true;
@@ -102,9 +120,10 @@
             // 
             // btnCompras
             // 
-            this.btnCompras.Location = new System.Drawing.Point(521, 146);
+            this.btnCompras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCompras.Location = new System.Drawing.Point(0, 40);
             this.btnCompras.Name = "btnCompras";
-            this.btnCompras.Size = new System.Drawing.Size(77, 80);
+            this.btnCompras.Size = new System.Drawing.Size(190, 40);
             this.btnCompras.TabIndex = 7;
             this.btnCompras.Text = "Compras";
             this.btnCompras.UseVisualStyleBackColor = true;
@@ -112,9 +131,10 @@
             // 
             // btnVentas
             // 
-            this.btnVentas.Location = new System.Drawing.Point(604, 146);
+            this.btnVentas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVentas.Location = new System.Drawing.Point(0, 0);
             this.btnVentas.Name = "btnVentas";
-            this.btnVentas.Size = new System.Drawing.Size(77, 80);
+            this.btnVentas.Size = new System.Drawing.Size(190, 40);
             this.btnVentas.TabIndex = 8;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.UseVisualStyleBackColor = true;
@@ -122,9 +142,10 @@
             // 
             // btnCaja
             // 
-            this.btnCaja.Location = new System.Drawing.Point(698, 146);
+            this.btnCaja.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCaja.Location = new System.Drawing.Point(0, 280);
             this.btnCaja.Name = "btnCaja";
-            this.btnCaja.Size = new System.Drawing.Size(77, 80);
+            this.btnCaja.Size = new System.Drawing.Size(190, 40);
             this.btnCaja.TabIndex = 9;
             this.btnCaja.Text = "Caja";
             this.btnCaja.UseVisualStyleBackColor = true;
@@ -132,34 +153,129 @@
             // 
             // btnInventario
             // 
-            this.btnInventario.Location = new System.Drawing.Point(796, 146);
+            this.btnInventario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInventario.Location = new System.Drawing.Point(0, 320);
             this.btnInventario.Name = "btnInventario";
-            this.btnInventario.Size = new System.Drawing.Size(77, 80);
+            this.btnInventario.Size = new System.Drawing.Size(190, 40);
             this.btnInventario.TabIndex = 10;
             this.btnInventario.Text = "Inventario";
             this.btnInventario.UseVisualStyleBackColor = true;
             this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
             // 
+            // pnlMenu
+            // 
+            this.pnlMenu.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.pnlMenu.Controls.Add(this.pictureBox1);
+            this.pnlMenu.Controls.Add(this.label1);
+            this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMenu.Location = new System.Drawing.Point(0, 0);
+            this.pnlMenu.Name = "pnlMenu";
+            this.pnlMenu.Size = new System.Drawing.Size(984, 80);
+            this.pnlMenu.TabIndex = 11;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Sistema_Ferreteria.Properties.Resources.bannerFerr;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(190, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pnlBtns
+            // 
+            this.pnlBtns.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlBtns.Controls.Add(this.pnlUsuario);
+            this.pnlBtns.Controls.Add(this.btnInventario);
+            this.pnlBtns.Controls.Add(this.btnCaja);
+            this.pnlBtns.Controls.Add(this.btnProductos);
+            this.pnlBtns.Controls.Add(this.btnClientes);
+            this.pnlBtns.Controls.Add(this.button1);
+            this.pnlBtns.Controls.Add(this.btnUsuarios);
+            this.pnlBtns.Controls.Add(this.btnProveedores);
+            this.pnlBtns.Controls.Add(this.btnCompras);
+            this.pnlBtns.Controls.Add(this.btnVentas);
+            this.pnlBtns.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlBtns.Location = new System.Drawing.Point(0, 80);
+            this.pnlBtns.Name = "pnlBtns";
+            this.pnlBtns.Size = new System.Drawing.Size(190, 481);
+            this.pnlBtns.TabIndex = 12;
+            // 
+            // pnlUsuario
+            // 
+            this.pnlUsuario.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.pnlUsuario.Controls.Add(this.btnSalir);
+            this.pnlUsuario.Controls.Add(this.lblUsuario);
+            this.pnlUsuario.Controls.Add(this.pictureBox2);
+            this.pnlUsuario.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlUsuario.Location = new System.Drawing.Point(0, 421);
+            this.pnlUsuario.Name = "pnlUsuario";
+            this.pnlUsuario.Size = new System.Drawing.Size(190, 60);
+            this.pnlUsuario.TabIndex = 11;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Sistema_Ferreteria.Properties.Resources.circle_user_solid_full;
+            this.pictureBox2.Location = new System.Drawing.Point(1, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(51, 22);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(66, 18);
+            this.lblUsuario.TabIndex = 1;
+            this.lblUsuario.Text = "Usuario";
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackgroundImage = global::Sistema_Ferreteria.Properties.Resources.right_from_bracket_solid_full;
+            this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Location = new System.Drawing.Point(137, 6);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(50, 50);
+            this.btnSalir.TabIndex = 2;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // pnlForms
+            // 
+            this.pnlForms.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlForms.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlForms.Location = new System.Drawing.Point(190, 80);
+            this.pnlForms.Name = "pnlForms";
+            this.pnlForms.Size = new System.Drawing.Size(794, 481);
+            this.pnlForms.TabIndex = 13;
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 450);
-            this.Controls.Add(this.btnInventario);
-            this.Controls.Add(this.btnCaja);
-            this.Controls.Add(this.btnVentas);
-            this.Controls.Add(this.btnCompras);
-            this.Controls.Add(this.btnProveedores);
-            this.Controls.Add(this.btnUsuarios);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnClientes);
-            this.Controls.Add(this.btnProductos);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.pnlForms);
+            this.Controls.Add(this.pnlBtns);
+            this.Controls.Add(this.pnlMenu);
+            this.MinimumSize = new System.Drawing.Size(800, 480);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
+            this.pnlMenu.ResumeLayout(false);
+            this.pnlMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlBtns.ResumeLayout(false);
+            this.pnlUsuario.ResumeLayout(false);
+            this.pnlUsuario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -175,5 +291,13 @@
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button btnCaja;
         private System.Windows.Forms.Button btnInventario;
+        private System.Windows.Forms.Panel pnlMenu;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel pnlBtns;
+        private System.Windows.Forms.Panel pnlUsuario;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel pnlForms;
     }
 }

@@ -87,5 +87,10 @@ namespace Sistema_Ferreteria
             FrmInventario frmInventario = new FrmInventario();
             frmInventario.ShowDialog();
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
