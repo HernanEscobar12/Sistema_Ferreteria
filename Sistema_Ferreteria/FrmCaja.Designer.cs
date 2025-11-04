@@ -61,6 +61,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.LblFecha);
             this.panel1.Controls.Add(this.label1);
@@ -91,6 +92,7 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.lblUser);
             this.panel2.Controls.Add(this.lblEstado);
@@ -143,6 +145,7 @@
             // 
             // panel3
             // 
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.lblEgresos);
             this.panel3.Controls.Add(this.lblIngresos);
@@ -195,6 +198,7 @@
             // 
             // panel4
             // 
+            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel4.Controls.Add(this.LblFinal);
             this.panel4.Controls.Add(this.label9);
@@ -225,6 +229,7 @@
             // 
             // panel5
             // 
+            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel5.Controls.Add(this.label6);
             this.panel5.Location = new System.Drawing.Point(12, 276);
@@ -244,6 +249,9 @@
             // 
             // dgvDetallesMovimientos
             // 
+            this.dgvDetallesMovimientos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetallesMovimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetallesMovimientos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvDetallesMovimientos.Location = new System.Drawing.Point(32, 342);
@@ -254,8 +262,9 @@
             // 
             // btnAbrirCaja
             // 
+            this.btnAbrirCaja.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnAbrirCaja.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbrirCaja.Location = new System.Drawing.Point(32, 506);
+            this.btnAbrirCaja.Location = new System.Drawing.Point(138, 506);
             this.btnAbrirCaja.Name = "btnAbrirCaja";
             this.btnAbrirCaja.Size = new System.Drawing.Size(153, 49);
             this.btnAbrirCaja.TabIndex = 8;
@@ -265,8 +274,9 @@
             // 
             // btnCerrarCaja
             // 
+            this.btnCerrarCaja.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCerrarCaja.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarCaja.Location = new System.Drawing.Point(213, 506);
+            this.btnCerrarCaja.Location = new System.Drawing.Point(297, 506);
             this.btnCerrarCaja.Name = "btnCerrarCaja";
             this.btnCerrarCaja.Size = new System.Drawing.Size(175, 49);
             this.btnCerrarCaja.TabIndex = 9;
@@ -276,8 +286,9 @@
             // 
             // btnActualizar
             // 
+            this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.Location = new System.Drawing.Point(436, 506);
+            this.btnActualizar.Location = new System.Drawing.Point(478, 506);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(175, 49);
             this.btnActualizar.TabIndex = 10;
@@ -287,8 +298,9 @@
             // 
             // btnSalir
             // 
+            this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(661, 506);
+            this.btnSalir.Location = new System.Drawing.Point(703, 506);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(95, 49);
             this.btnSalir.TabIndex = 11;
