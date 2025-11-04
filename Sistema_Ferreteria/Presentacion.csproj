@@ -262,5 +262,50 @@
       <Name>Negocio</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bannerFerr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bannerMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\briefcase-solid-full %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-check-solid-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-user-solid-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock-solid-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoFerr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\person-solid-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right-from-bracket-solid-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\screwdriver-wrench-solid-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shop-solid-full50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\triangle-exclamation-solid-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-solid-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wait.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue-circle.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
