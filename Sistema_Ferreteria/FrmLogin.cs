@@ -1,5 +1,6 @@
 ﻿using Dominio;
 using Negocio;
+using Sistema_Ferreteria.PopUps;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,8 @@ namespace Sistema_Ferreteria
             InitializeComponent();
         }
 
+        private Timer temp;
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Usuario usuario = new Usuario(txtUser.Text.ToUpper(), TxtPass.Text.ToUpper());
@@ -26,25 +29,75 @@ namespace Sistema_Ferreteria
 
             if((string.IsNullOrEmpty(txtUser.Text) || string.IsNullOrEmpty(TxtPass.Text)))
             {
-                MessageBox.Show("Por favor complete todos los campos.");
-                return; // Salir del método si los campos están vacíos
+                //MessageBox.Show("Por favor complete todos los campos.");
+                //return; // Salir del método si los campos están vacíos
+
+                MostrarMsj(new PopUpError1());
+
+                temp = new Timer();
+                temp.Interval = 3000;
+                temp.Tick += (s, ev) =>
+                {
+                    temp.Stop();
+
+                    if (pnlMsj.Controls.Count > 0)
+                    {
+                        pnlMsj.Controls.RemoveAt(0);
+                    }
+                };
+
+                temp.Start();
             }
             else
             {
                 if (UsuarioNegocio.Login(usuario))
                 {
+                    if (pnlMsj.Controls.Count > 0)
+                    {
+                        pnlMsj.Controls.RemoveAt(0);
+                    }
+
                     SessionActual.Usuario = usuario;
                     SessionActual.Sucursal  = usuario.Empleado.Sucursal;
 
-                    FrmMenu FrmMenu = new FrmMenu(usuario);
-                    FrmMenu.ShowDialog();
-                    this.Hide();
+                    MostrarMsj(new PopUpExito());
+
+                    temp = new Timer();
+                    temp.Interval = 500;
+                    temp.Tick += (s, ev) =>
+                    {
+                        temp.Stop();
+
+                        FrmMenu frmMenu = new FrmMenu();
+                        frmMenu.Show();
+                        this.Hide();
+                    };
+
+                    temp.Start();
+
+                    
+
                 }
                 else
                 {
                     txtUser.BackColor = Color.Red;
                     TxtPass.BackColor = Color.Red;
-                    MessageBox.Show("Usuario Invalido");
+                    //MessageBox.Show("Usuario Invalido");
+                    MostrarMsj(new PopUpError2());
+
+                    temp = new Timer();
+                    temp.Interval = 3000;
+                    temp.Tick += (s, ev) =>
+                    {
+                        temp.Stop();
+
+                        if (pnlMsj.Controls.Count > 0)
+                        {
+                            pnlMsj.Controls.RemoveAt(0);
+                        }
+                    };
+
+                    temp.Start();
                 }
             }
 
@@ -78,5 +131,21 @@ namespace Sistema_Ferreteria
                 TxtPass.PasswordChar = '*';
             }
         }
+
+        private void MostrarMsj(Form frm)
+        {
+            if (pnlMsj.Controls.Count > 0)
+            {
+                pnlMsj.Controls.RemoveAt(0);
+            }
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            pnlMsj.Controls.Add(frm);
+            pnlMsj.Tag = frm;
+            frm.Show();
+        }
+
     }
 }
