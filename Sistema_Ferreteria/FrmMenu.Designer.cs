@@ -31,7 +31,7 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
             this.btnCompras = new System.Windows.Forms.Button();
@@ -39,18 +39,18 @@
             this.btnCaja = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.pbBanner = new System.Windows.Forms.PictureBox();
             this.pnlBtns = new System.Windows.Forms.Panel();
             this.pnlUsuario = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.pnlForms = new System.Windows.Forms.Panel();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pbBanner = new System.Windows.Forms.PictureBox();
             this.pnlMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBanner)).BeginInit();
             this.pnlBtns.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBanner)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -85,16 +85,16 @@
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
-            // button1
+            // btnEmpleados
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.Location = new System.Drawing.Point(0, 160);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(190, 40);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Empleados";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnEmpleados.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEmpleados.Location = new System.Drawing.Point(0, 160);
+            this.btnEmpleados.Name = "btnEmpleados";
+            this.btnEmpleados.Size = new System.Drawing.Size(190, 40);
+            this.btnEmpleados.TabIndex = 4;
+            this.btnEmpleados.Text = "Empleados";
+            this.btnEmpleados.UseVisualStyleBackColor = true;
+            this.btnEmpleados.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // btnUsuarios
             // 
@@ -173,18 +173,6 @@
             this.pnlMenu.Size = new System.Drawing.Size(984, 80);
             this.pnlMenu.TabIndex = 11;
             // 
-            // pbBanner
-            // 
-            this.pbBanner.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbBanner.Image = global::Sistema_Ferreteria.Properties.Resources.bannerFerr;
-            this.pbBanner.Location = new System.Drawing.Point(0, 0);
-            this.pbBanner.Name = "pbBanner";
-            this.pbBanner.Size = new System.Drawing.Size(190, 80);
-            this.pbBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbBanner.TabIndex = 1;
-            this.pbBanner.TabStop = false;
-            this.pbBanner.Click += new System.EventHandler(this.pbBanner_Click);
-            // 
             // pnlBtns
             // 
             this.pnlBtns.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -193,7 +181,7 @@
             this.pnlBtns.Controls.Add(this.btnCaja);
             this.pnlBtns.Controls.Add(this.btnProductos);
             this.pnlBtns.Controls.Add(this.btnClientes);
-            this.pnlBtns.Controls.Add(this.button1);
+            this.pnlBtns.Controls.Add(this.btnEmpleados);
             this.pnlBtns.Controls.Add(this.btnUsuarios);
             this.pnlBtns.Controls.Add(this.btnProveedores);
             this.pnlBtns.Controls.Add(this.btnCompras);
@@ -216,16 +204,6 @@
             this.pnlUsuario.Size = new System.Drawing.Size(190, 60);
             this.pnlUsuario.TabIndex = 11;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Sistema_Ferreteria.Properties.Resources.circle_user_solid_full;
-            this.pictureBox2.Location = new System.Drawing.Point(1, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
@@ -235,6 +213,15 @@
             this.lblUsuario.Size = new System.Drawing.Size(66, 18);
             this.lblUsuario.TabIndex = 1;
             this.lblUsuario.Text = "Usuario";
+            // 
+            // pnlForms
+            // 
+            this.pnlForms.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlForms.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlForms.Location = new System.Drawing.Point(190, 80);
+            this.pnlForms.Name = "pnlForms";
+            this.pnlForms.Size = new System.Drawing.Size(794, 481);
+            this.pnlForms.TabIndex = 13;
             // 
             // btnSalir
             // 
@@ -250,14 +237,27 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // pnlForms
+            // pictureBox2
             // 
-            this.pnlForms.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pnlForms.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlForms.Location = new System.Drawing.Point(190, 80);
-            this.pnlForms.Name = "pnlForms";
-            this.pnlForms.Size = new System.Drawing.Size(794, 481);
-            this.pnlForms.TabIndex = 13;
+            this.pictureBox2.Image = global::Sistema_Ferreteria.Properties.Resources.circle_user_solid_full;
+            this.pictureBox2.Location = new System.Drawing.Point(1, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pbBanner
+            // 
+            this.pbBanner.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbBanner.Image = global::Sistema_Ferreteria.Properties.Resources.bannerFerr;
+            this.pbBanner.Location = new System.Drawing.Point(0, 0);
+            this.pbBanner.Name = "pbBanner";
+            this.pbBanner.Size = new System.Drawing.Size(190, 80);
+            this.pbBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbBanner.TabIndex = 1;
+            this.pbBanner.TabStop = false;
+            this.pbBanner.Click += new System.EventHandler(this.pbBanner_Click);
             // 
             // FrmMenu
             // 
@@ -273,11 +273,11 @@
             this.Text = "Menu Principal";
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBanner)).EndInit();
             this.pnlBtns.ResumeLayout(false);
             this.pnlUsuario.ResumeLayout(false);
             this.pnlUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBanner)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -287,7 +287,7 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnProductos;
         private System.Windows.Forms.Button btnClientes;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEmpleados;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Button btnCompras;
