@@ -249,13 +249,13 @@
             this.dgvDetallesMovimientos.Location = new System.Drawing.Point(32, 342);
             this.dgvDetallesMovimientos.Name = "dgvDetallesMovimientos";
             this.dgvDetallesMovimientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetallesMovimientos.Size = new System.Drawing.Size(724, 200);
+            this.dgvDetallesMovimientos.Size = new System.Drawing.Size(724, 133);
             this.dgvDetallesMovimientos.TabIndex = 7;
             // 
             // btnAbrirCaja
             // 
             this.btnAbrirCaja.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbrirCaja.Location = new System.Drawing.Point(32, 578);
+            this.btnAbrirCaja.Location = new System.Drawing.Point(32, 506);
             this.btnAbrirCaja.Name = "btnAbrirCaja";
             this.btnAbrirCaja.Size = new System.Drawing.Size(153, 49);
             this.btnAbrirCaja.TabIndex = 8;
@@ -266,7 +266,7 @@
             // btnCerrarCaja
             // 
             this.btnCerrarCaja.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarCaja.Location = new System.Drawing.Point(213, 578);
+            this.btnCerrarCaja.Location = new System.Drawing.Point(213, 506);
             this.btnCerrarCaja.Name = "btnCerrarCaja";
             this.btnCerrarCaja.Size = new System.Drawing.Size(175, 49);
             this.btnCerrarCaja.TabIndex = 9;
@@ -277,7 +277,7 @@
             // btnActualizar
             // 
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.Location = new System.Drawing.Point(436, 578);
+            this.btnActualizar.Location = new System.Drawing.Point(436, 506);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(175, 49);
             this.btnActualizar.TabIndex = 10;
@@ -288,7 +288,7 @@
             // btnSalir
             // 
             this.btnSalir.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(661, 578);
+            this.btnSalir.Location = new System.Drawing.Point(661, 506);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(95, 49);
             this.btnSalir.TabIndex = 11;
@@ -300,7 +300,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 674);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(800, 572);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnCerrarCaja);

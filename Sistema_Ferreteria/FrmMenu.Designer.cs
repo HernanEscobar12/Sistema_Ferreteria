@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.pbBanner = new System.Windows.Forms.PictureBox();
             this.pnlBtns = new System.Windows.Forms.Panel();
             this.pnlUsuario = new System.Windows.Forms.Panel();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.pnlForms = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnInventario = new System.Windows.Forms.Button();
             this.btnCaja = new System.Windows.Forms.Button();
@@ -46,12 +46,12 @@
             this.btnProveedores = new System.Windows.Forms.Button();
             this.btnCompras = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
-            this.pbBanner = new System.Windows.Forms.PictureBox();
+            this.pnlForms = new System.Windows.Forms.Panel();
             this.pnlMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBanner)).BeginInit();
             this.pnlBtns.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBanner)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -76,6 +76,19 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(1224, 80);
             this.pnlMenu.TabIndex = 11;
+            // 
+            // pbBanner
+            // 
+            this.pbBanner.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbBanner.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pbBanner.Image = global::Sistema_Ferreteria.Properties.Resources.bannerFerr;
+            this.pbBanner.Location = new System.Drawing.Point(0, 0);
+            this.pbBanner.Name = "pbBanner";
+            this.pbBanner.Size = new System.Drawing.Size(190, 80);
+            this.pbBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbBanner.TabIndex = 1;
+            this.pbBanner.TabStop = false;
+            this.pbBanner.Click += new System.EventHandler(this.pbBanner_Click_1);
             // 
             // pnlBtns
             // 
@@ -108,25 +121,6 @@
             this.pnlUsuario.Size = new System.Drawing.Size(190, 60);
             this.pnlUsuario.TabIndex = 11;
             // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(51, 21);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(66, 18);
-            this.lblUsuario.TabIndex = 1;
-            this.lblUsuario.Text = "Usuario";
-            // 
-            // pnlForms
-            // 
-            this.pnlForms.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pnlForms.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlForms.Location = new System.Drawing.Point(190, 80);
-            this.pnlForms.Name = "pnlForms";
-            this.pnlForms.Size = new System.Drawing.Size(1034, 581);
-            this.pnlForms.TabIndex = 13;
-            // 
             // btnSalir
             // 
             this.btnSalir.BackgroundImage = global::Sistema_Ferreteria.Properties.Resources.right_from_bracket_solid_full;
@@ -140,6 +134,16 @@
             this.btnSalir.TabIndex = 2;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(51, 21);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(66, 18);
+            this.lblUsuario.TabIndex = 1;
+            this.lblUsuario.Text = "Usuario";
             // 
             // pictureBox2
             // 
@@ -313,18 +317,15 @@
             this.btnVentas.UseVisualStyleBackColor = true;
             this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
-            // pbBanner
+            // pnlForms
             // 
-            this.pbBanner.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbBanner.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbBanner.Image = global::Sistema_Ferreteria.Properties.Resources.bannerFerr;
-            this.pbBanner.Location = new System.Drawing.Point(0, 0);
-            this.pbBanner.Name = "pbBanner";
-            this.pbBanner.Size = new System.Drawing.Size(190, 80);
-            this.pbBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbBanner.TabIndex = 1;
-            this.pbBanner.TabStop = false;
-            this.pbBanner.Click += new System.EventHandler(this.pbBanner_Click_1);
+            this.pnlForms.AutoScroll = true;
+            this.pnlForms.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlForms.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlForms.Location = new System.Drawing.Point(190, 80);
+            this.pnlForms.Name = "pnlForms";
+            this.pnlForms.Size = new System.Drawing.Size(1034, 581);
+            this.pnlForms.TabIndex = 13;
             // 
             // FrmMenu
             // 
@@ -341,11 +342,11 @@
             this.Text = "Menu Principal";
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBanner)).EndInit();
             this.pnlBtns.ResumeLayout(false);
             this.pnlUsuario.ResumeLayout(false);
             this.pnlUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBanner)).EndInit();
             this.ResumeLayout(false);
 
         }
