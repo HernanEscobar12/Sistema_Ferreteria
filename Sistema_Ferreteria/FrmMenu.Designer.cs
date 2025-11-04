@@ -36,6 +36,8 @@
             this.btnProveedores = new System.Windows.Forms.Button();
             this.btnCompras = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
+            this.btnCaja = new System.Windows.Forms.Button();
+            this.btnInventario = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -118,11 +120,33 @@
             this.btnVentas.UseVisualStyleBackColor = true;
             this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
+            // btnCaja
+            // 
+            this.btnCaja.Location = new System.Drawing.Point(698, 146);
+            this.btnCaja.Name = "btnCaja";
+            this.btnCaja.Size = new System.Drawing.Size(77, 80);
+            this.btnCaja.TabIndex = 9;
+            this.btnCaja.Text = "Caja";
+            this.btnCaja.UseVisualStyleBackColor = true;
+            this.btnCaja.Click += new System.EventHandler(this.btnCaja_Click);
+            // 
+            // btnInventario
+            // 
+            this.btnInventario.Location = new System.Drawing.Point(796, 146);
+            this.btnInventario.Name = "btnInventario";
+            this.btnInventario.Size = new System.Drawing.Size(77, 80);
+            this.btnInventario.TabIndex = 10;
+            this.btnInventario.Text = "Inventario";
+            this.btnInventario.UseVisualStyleBackColor = true;
+            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(900, 450);
+            this.Controls.Add(this.btnInventario);
+            this.Controls.Add(this.btnCaja);
             this.Controls.Add(this.btnVentas);
             this.Controls.Add(this.btnCompras);
             this.Controls.Add(this.btnProveedores);
@@ -149,5 +173,7 @@
         private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Button btnCompras;
         private System.Windows.Forms.Button btnVentas;
+        private System.Windows.Forms.Button btnCaja;
+        private System.Windows.Forms.Button btnInventario;
     }
 }

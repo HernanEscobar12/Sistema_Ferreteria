@@ -42,11 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CajaNegocio.cs" />
     <Compile Include="CargoNegocio.cs" />
     <Compile Include="CategoriaNegocio.cs" />
     <Compile Include="ClienteNegocio.cs" />
     <Compile Include="CompraNegocio.cs" />
     <Compile Include="EmpleadoNegocio.cs" />
+    <Compile Include="InventarioNegocio.cs" />
     <Compile Include="LocalidadNegocio.cs" />
     <Compile Include="ProductoNegocio.cs" />
     <Compile Include="ProveedorNegocio.cs" />

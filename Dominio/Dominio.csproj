@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caja.cs" />
     <Compile Include="Cargo.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Cliente.cs" />
@@ -53,7 +54,10 @@
     <Compile Include="EstadoVenta.cs" />
     <Compile Include="Inventario.cs" />
     <Compile Include="Localidad.cs" />
+    <Compile Include="MovimientoCaja.cs" />
     <Compile Include="Pago.cs" />
+    <Compile Include="ResumenCaja.cs" />
+    <Compile Include="SessionActual.cs" />
     <Compile Include="Venta.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="ProductoUbicacion.cs" />

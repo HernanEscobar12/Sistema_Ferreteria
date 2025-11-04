@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using Presentacion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,15 @@ namespace Sistema_Ferreteria
         public FrmMenu()
         {
             InitializeComponent();
+        }
+
+        public FrmMenu(Usuario usuarioLogueado)
+        {
+            InitializeComponent();
+            
+            SessionActual.Usuario = usuarioLogueado;
+            SessionActual.Sucursal = usuarioLogueado.Empleado.Sucursal;
+
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
@@ -63,6 +74,18 @@ namespace Sistema_Ferreteria
         {
             FrmListadoVentas frmListadoVentas = new FrmListadoVentas();
             frmListadoVentas.ShowDialog();
+        }
+
+        private void btnCaja_Click(object sender, EventArgs e)
+        {
+            FrmCaja frmCaja = new FrmCaja();
+            frmCaja.ShowDialog();
+        }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            FrmInventario frmInventario = new FrmInventario();
+            frmInventario.ShowDialog();
         }
     }
 }

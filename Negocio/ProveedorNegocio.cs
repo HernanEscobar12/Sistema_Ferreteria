@@ -1,5 +1,4 @@
 ﻿using Datos;
-using Datos.Datos;
 using Dominio;
 using Negocio.Utilidades;
 using System;

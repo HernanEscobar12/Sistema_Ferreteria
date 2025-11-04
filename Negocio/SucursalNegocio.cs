@@ -1,6 +1,4 @@
-﻿
-using Datos;
-using Datos.Datos;
+﻿using Datos;
 using Dominio;
 using System;
 using System.Collections.Generic;
