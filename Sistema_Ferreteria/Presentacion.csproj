@@ -167,6 +167,12 @@
     <Compile Include="FrmVentas.Designer.cs">
       <DependentUpon>FrmVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="PopUps\MenuLogo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUps\MenuLogo.Designer.cs">
+      <DependentUpon>MenuLogo.cs</DependentUpon>
+    </Compile>
     <Compile Include="PopUps\PopUpError1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVentas.resx">
       <DependentUpon>FrmVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUps\MenuLogo.resx">
+      <DependentUpon>MenuLogo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PopUps\PopUpError1.resx">
       <DependentUpon>PopUpError1.cs</DependentUpon>
