@@ -56,6 +56,8 @@
             // 
             // gboAvz
             // 
+            this.gboAvz.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gboAvz.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.gboAvz.Controls.Add(this.btnBuscar);
             this.gboAvz.Controls.Add(this.txtFiltroAvz);
@@ -123,6 +125,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.groupBox2.Controls.Add(this.chkFiltroAvanzada);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -146,6 +150,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.groupBox3.Controls.Add(this.btnInactivos);
             this.groupBox3.Controls.Add(this.btnACtivos);
@@ -164,6 +170,7 @@
             // 
             // btnInactivos
             // 
+            this.btnInactivos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btnInactivos.Location = new System.Drawing.Point(81, 21);
             this.btnInactivos.Name = "btnInactivos";
             this.btnInactivos.Size = new System.Drawing.Size(85, 22);
@@ -174,6 +181,7 @@
             // 
             // btnACtivos
             // 
+            this.btnACtivos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btnACtivos.Location = new System.Drawing.Point(5, 21);
             this.btnACtivos.Name = "btnACtivos";
             this.btnACtivos.Size = new System.Drawing.Size(70, 22);
@@ -184,6 +192,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label4.Location = new System.Drawing.Point(6, 62);
@@ -194,6 +203,7 @@
             // 
             // btnReiniciar
             // 
+            this.btnReiniciar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btnReiniciar.Location = new System.Drawing.Point(436, 140);
             this.btnReiniciar.Name = "btnReiniciar";
             this.btnReiniciar.Size = new System.Drawing.Size(98, 26);
@@ -204,6 +214,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(181, 122);
             this.label1.Name = "label1";
@@ -213,6 +224,7 @@
             // 
             // cboLocalidad
             // 
+            this.cboLocalidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cboLocalidad.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboLocalidad.FormattingEnabled = true;
             this.cboLocalidad.Location = new System.Drawing.Point(152, 141);
@@ -223,6 +235,7 @@
             // 
             // txtFiltroSimple
             // 
+            this.txtFiltroSimple.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtFiltroSimple.Font = new System.Drawing.Font("Book Antiqua", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFiltroSimple.Location = new System.Drawing.Point(5, 81);
             this.txtFiltroSimple.Name = "txtFiltroSimple";
@@ -231,17 +244,19 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(603, 513);
+            this.btnSalir.Location = new System.Drawing.Point(478, 513);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(88, 33);
             this.btnSalir.TabIndex = 30;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Visible = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(10, 513);
+            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNuevo.Location = new System.Drawing.Point(606, 513);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(88, 33);
             this.btnNuevo.TabIndex = 29;
@@ -251,6 +266,8 @@
             // 
             // dgvProveedores
             // 
+            this.dgvProveedores.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProveedores.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvProveedores.Location = new System.Drawing.Point(13, 179);
