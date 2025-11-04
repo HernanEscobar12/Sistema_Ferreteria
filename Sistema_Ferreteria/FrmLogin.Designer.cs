@@ -87,7 +87,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnLogin.Location = new System.Drawing.Point(481, 285);
+            this.btnLogin.Location = new System.Drawing.Point(481, 227);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(240, 40);
             this.btnLogin.TabIndex = 4;
@@ -109,7 +109,7 @@
             // 
             // pnlMsj
             // 
-            this.pnlMsj.Location = new System.Drawing.Point(481, 226);
+            this.pnlMsj.Location = new System.Drawing.Point(481, 272);
             this.pnlMsj.Name = "pnlMsj";
             this.pnlMsj.Size = new System.Drawing.Size(240, 50);
             this.pnlMsj.TabIndex = 9;
