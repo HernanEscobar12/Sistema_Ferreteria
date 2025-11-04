@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.pnlBtns = new System.Windows.Forms.Panel();
@@ -58,11 +59,12 @@
             this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(662, 25);
+            this.lblTitulo.Location = new System.Drawing.Point(656, 25);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(198, 31);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Menu Sistema";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlMenu
             // 
@@ -332,6 +334,7 @@
             this.Controls.Add(this.pnlForms);
             this.Controls.Add(this.pnlBtns);
             this.Controls.Add(this.pnlMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1240, 600);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
