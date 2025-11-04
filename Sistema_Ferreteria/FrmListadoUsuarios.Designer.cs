@@ -32,6 +32,8 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnInactivos = new System.Windows.Forms.Button();
+            this.btnACtivos = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.btnReiniciar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@
             this.rbNombre = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chkFiltroAvanzada = new System.Windows.Forms.CheckBox();
-            this.btnACtivos = new System.Windows.Forms.Button();
-            this.btnInactivos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.gboAvz.SuspendLayout();
@@ -59,17 +59,19 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(605, 475);
+            this.btnSalir.Location = new System.Drawing.Point(139, 475);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(88, 33);
             this.btnSalir.TabIndex = 18;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Visible = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(12, 475);
+            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNuevo.Location = new System.Drawing.Point(605, 475);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(88, 33);
             this.btnNuevo.TabIndex = 17;
@@ -79,6 +81,9 @@
             // 
             // dgvUsuarios
             // 
+            this.dgvUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvUsuarios.Location = new System.Drawing.Point(12, 180);
@@ -90,6 +95,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.groupBox3.Controls.Add(this.btnInactivos);
             this.groupBox3.Controls.Add(this.btnACtivos);
@@ -110,8 +117,31 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Busqueda";
             // 
+            // btnInactivos
+            // 
+            this.btnInactivos.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnInactivos.Location = new System.Drawing.Point(81, 21);
+            this.btnInactivos.Name = "btnInactivos";
+            this.btnInactivos.Size = new System.Drawing.Size(85, 22);
+            this.btnInactivos.TabIndex = 13;
+            this.btnInactivos.Text = "Inactivos";
+            this.btnInactivos.UseVisualStyleBackColor = true;
+            this.btnInactivos.Click += new System.EventHandler(this.btnInactivos_Click);
+            // 
+            // btnACtivos
+            // 
+            this.btnACtivos.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnACtivos.Location = new System.Drawing.Point(5, 21);
+            this.btnACtivos.Name = "btnACtivos";
+            this.btnACtivos.Size = new System.Drawing.Size(70, 22);
+            this.btnACtivos.TabIndex = 12;
+            this.btnACtivos.Text = "Activos";
+            this.btnACtivos.UseVisualStyleBackColor = true;
+            this.btnACtivos.Click += new System.EventHandler(this.btnACtivos_Click);
+            // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label4.Location = new System.Drawing.Point(6, 59);
@@ -122,6 +152,7 @@
             // 
             // btnReiniciar
             // 
+            this.btnReiniciar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btnReiniciar.Location = new System.Drawing.Point(566, 139);
             this.btnReiniciar.Name = "btnReiniciar";
             this.btnReiniciar.Size = new System.Drawing.Size(98, 26);
@@ -132,6 +163,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(443, 121);
             this.label3.Name = "label3";
@@ -141,6 +173,7 @@
             // 
             // cboRol
             // 
+            this.cboRol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cboRol.Font = new System.Drawing.Font("Book Antiqua", 9.75F);
             this.cboRol.FormattingEnabled = true;
             this.cboRol.Location = new System.Drawing.Point(374, 139);
@@ -151,6 +184,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(237, 121);
             this.label2.Name = "label2";
@@ -160,6 +194,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(46, 121);
             this.label1.Name = "label1";
@@ -169,6 +204,7 @@
             // 
             // cboCargo
             // 
+            this.cboCargo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cboCargo.Font = new System.Drawing.Font("Book Antiqua", 9.75F);
             this.cboCargo.FormattingEnabled = true;
             this.cboCargo.Location = new System.Drawing.Point(181, 140);
@@ -179,6 +215,7 @@
             // 
             // cboSucursal
             // 
+            this.cboSucursal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cboSucursal.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSucursal.FormattingEnabled = true;
             this.cboSucursal.Location = new System.Drawing.Point(5, 140);
@@ -189,6 +226,7 @@
             // 
             // txtFiltroSimple
             // 
+            this.txtFiltroSimple.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtFiltroSimple.Font = new System.Drawing.Font("Book Antiqua", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFiltroSimple.Location = new System.Drawing.Point(5, 81);
             this.txtFiltroSimple.Name = "txtFiltroSimple";
@@ -198,6 +236,8 @@
             // 
             // gboAvz
             // 
+            this.gboAvz.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gboAvz.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.gboAvz.Controls.Add(this.btnBuscar);
             this.gboAvz.Controls.Add(this.txtFiltroAvz);
@@ -265,6 +305,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.groupBox2.Controls.Add(this.chkFiltroAvanzada);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -285,26 +327,6 @@
             this.chkFiltroAvanzada.Text = "Filtro Avanzado";
             this.chkFiltroAvanzada.UseVisualStyleBackColor = true;
             this.chkFiltroAvanzada.CheckedChanged += new System.EventHandler(this.chkFiltroAvanzada_CheckedChanged);
-            // 
-            // btnACtivos
-            // 
-            this.btnACtivos.Location = new System.Drawing.Point(5, 21);
-            this.btnACtivos.Name = "btnACtivos";
-            this.btnACtivos.Size = new System.Drawing.Size(70, 22);
-            this.btnACtivos.TabIndex = 12;
-            this.btnACtivos.Text = "Activos";
-            this.btnACtivos.UseVisualStyleBackColor = true;
-            this.btnACtivos.Click += new System.EventHandler(this.btnACtivos_Click);
-            // 
-            // btnInactivos
-            // 
-            this.btnInactivos.Location = new System.Drawing.Point(81, 21);
-            this.btnInactivos.Name = "btnInactivos";
-            this.btnInactivos.Size = new System.Drawing.Size(85, 22);
-            this.btnInactivos.TabIndex = 13;
-            this.btnInactivos.Text = "Inactivos";
-            this.btnInactivos.UseVisualStyleBackColor = true;
-            this.btnInactivos.Click += new System.EventHandler(this.btnInactivos_Click);
             // 
             // FrmListadoUsuarios
             // 
