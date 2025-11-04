@@ -495,7 +495,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvDetalleCompra);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(818, 788);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(818, 788);
             this.Name = "FrmCompras";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCompras";
             this.Load += new System.EventHandler(this.FrmCompras_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCompra)).EndInit();
