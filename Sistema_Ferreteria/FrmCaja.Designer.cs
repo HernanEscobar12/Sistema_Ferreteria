@@ -264,9 +264,9 @@
             // 
             this.btnAbrirCaja.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnAbrirCaja.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbrirCaja.Location = new System.Drawing.Point(138, 506);
+            this.btnAbrirCaja.Location = new System.Drawing.Point(130, 506);
             this.btnAbrirCaja.Name = "btnAbrirCaja";
-            this.btnAbrirCaja.Size = new System.Drawing.Size(153, 49);
+            this.btnAbrirCaja.Size = new System.Drawing.Size(175, 49);
             this.btnAbrirCaja.TabIndex = 8;
             this.btnAbrirCaja.Text = "Abrir Caja";
             this.btnAbrirCaja.UseVisualStyleBackColor = true;
@@ -276,7 +276,7 @@
             // 
             this.btnCerrarCaja.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCerrarCaja.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarCaja.Location = new System.Drawing.Point(297, 506);
+            this.btnCerrarCaja.Location = new System.Drawing.Point(311, 506);
             this.btnCerrarCaja.Name = "btnCerrarCaja";
             this.btnCerrarCaja.Size = new System.Drawing.Size(175, 49);
             this.btnCerrarCaja.TabIndex = 9;
@@ -288,7 +288,7 @@
             // 
             this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.Location = new System.Drawing.Point(478, 506);
+            this.btnActualizar.Location = new System.Drawing.Point(492, 506);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(175, 49);
             this.btnActualizar.TabIndex = 10;
