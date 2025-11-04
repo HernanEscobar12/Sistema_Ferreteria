@@ -38,6 +38,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlMsj = new System.Windows.Forms.Panel();
+            this.cbPass = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -86,7 +87,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnLogin.Location = new System.Drawing.Point(481, 280);
+            this.btnLogin.Location = new System.Drawing.Point(481, 289);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(240, 40);
             this.btnLogin.TabIndex = 4;
@@ -144,16 +145,28 @@
             // 
             // pnlMsj
             // 
-            this.pnlMsj.Location = new System.Drawing.Point(481, 217);
+            this.pnlMsj.Location = new System.Drawing.Point(481, 226);
             this.pnlMsj.Name = "pnlMsj";
             this.pnlMsj.Size = new System.Drawing.Size(240, 50);
             this.pnlMsj.TabIndex = 9;
+            // 
+            // cbPass
+            // 
+            this.cbPass.AutoSize = true;
+            this.cbPass.Location = new System.Drawing.Point(607, 205);
+            this.cbPass.Name = "cbPass";
+            this.cbPass.Size = new System.Drawing.Size(118, 17);
+            this.cbPass.TabIndex = 10;
+            this.cbPass.Text = "Mostrar Contraseña";
+            this.cbPass.UseVisualStyleBackColor = true;
+            this.cbPass.CheckedChanged += new System.EventHandler(this.cbPass_CheckedChanged);
             // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 401);
+            this.Controls.Add(this.cbPass);
             this.Controls.Add(this.pnlMsj);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox2);
@@ -186,6 +199,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel pnlMsj;
+        private System.Windows.Forms.CheckBox cbPass;
     }
 }
 

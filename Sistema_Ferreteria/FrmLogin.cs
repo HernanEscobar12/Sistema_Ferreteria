@@ -66,5 +66,17 @@ namespace Sistema_Ferreteria
             txtUser.BackColor = SystemColors.Window;
             TxtPass.BackColor = SystemColors.Window;
         }
+
+        private void cbPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbPass.Checked)
+            {
+                TxtPass.PasswordChar = '\0';
+            }
+            else
+            {
+                TxtPass.PasswordChar = '*';
+            }
+        }
     }
 }
