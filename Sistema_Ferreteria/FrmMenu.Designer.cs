@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -39,7 +39,7 @@
             this.btnCaja = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbBanner = new System.Windows.Forms.PictureBox();
             this.pnlBtns = new System.Windows.Forms.Panel();
             this.pnlUsuario = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -47,21 +47,21 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.pnlForms = new System.Windows.Forms.Panel();
             this.pnlMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBanner)).BeginInit();
             this.pnlBtns.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(524, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Menu Sistema";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(519, 24);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(198, 31);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "Menu Sistema";
             // 
             // btnProductos
             // 
@@ -165,23 +165,25 @@
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.pnlMenu.Controls.Add(this.pictureBox1);
-            this.pnlMenu.Controls.Add(this.label1);
+            this.pnlMenu.Controls.Add(this.pbBanner);
+            this.pnlMenu.Controls.Add(this.lblTitulo);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(984, 80);
             this.pnlMenu.TabIndex = 11;
             // 
-            // pictureBox1
+            // pbBanner
             // 
-            this.pictureBox1.Image = global::Sistema_Ferreteria.Properties.Resources.bannerFerr;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(190, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pbBanner.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbBanner.Image = global::Sistema_Ferreteria.Properties.Resources.bannerFerr;
+            this.pbBanner.Location = new System.Drawing.Point(0, 0);
+            this.pbBanner.Name = "pbBanner";
+            this.pbBanner.Size = new System.Drawing.Size(190, 80);
+            this.pbBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbBanner.TabIndex = 1;
+            this.pbBanner.TabStop = false;
+            this.pbBanner.Click += new System.EventHandler(this.pbBanner_Click);
             // 
             // pnlBtns
             // 
@@ -238,6 +240,7 @@
             // 
             this.btnSalir.BackgroundImage = global::Sistema_Ferreteria.Properties.Resources.right_from_bracket_solid_full;
             this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Location = new System.Drawing.Point(137, 6);
@@ -270,7 +273,7 @@
             this.Text = "Menu Principal";
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBanner)).EndInit();
             this.pnlBtns.ResumeLayout(false);
             this.pnlUsuario.ResumeLayout(false);
             this.pnlUsuario.PerformLayout();
@@ -281,7 +284,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnProductos;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button button1;
@@ -292,7 +295,7 @@
         private System.Windows.Forms.Button btnCaja;
         private System.Windows.Forms.Button btnInventario;
         private System.Windows.Forms.Panel pnlMenu;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbBanner;
         private System.Windows.Forms.Panel pnlBtns;
         private System.Windows.Forms.Panel pnlUsuario;
         private System.Windows.Forms.Button btnSalir;

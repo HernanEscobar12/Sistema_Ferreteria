@@ -17,12 +17,13 @@ namespace Sistema_Ferreteria
         public FrmMenu()
         {
             InitializeComponent();
+            
         }
 
         public FrmMenu(Usuario usuarioLogueado)
         {
             InitializeComponent();
-            
+
             SessionActual.Usuario = usuarioLogueado;
             SessionActual.Sucursal = usuarioLogueado.Empleado.Sucursal;
 
@@ -72,8 +73,11 @@ namespace Sistema_Ferreteria
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            FrmListadoVentas frmListadoVentas = new FrmListadoVentas();
-            frmListadoVentas.ShowDialog();
+            //FrmListadoVentas frmListadoVentas = new FrmListadoVentas();
+            //frmListadoVentas.ShowDialog();
+
+            AbrirFormularioEnPanel(new FrmListadoVentas(), btnVentas);
+
         }
 
         private void btnCaja_Click(object sender, EventArgs e)
@@ -90,7 +94,36 @@ namespace Sistema_Ferreteria
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.ShowDialog();
         }
+
+        private void pbBanner_Click(object sender, EventArgs e)
+        {
+            if (pnlForms.Controls.Count > 0)
+            {
+                pnlForms.Controls.RemoveAt(0);
+            }
+        }
+
+        private void AbrirFormularioEnPanel(Form frm, Button botonSeleccionado)
+        {
+            if (pnlForms.Controls.Count > 0)
+            {
+                pnlForms.Controls.RemoveAt(0);
+            }
+
+            frm.TopLevel = false;                     
+            frm.FormBorderStyle = FormBorderStyle.None; 
+            frm.Dock = DockStyle.Fill;                
+            pnlForms.Controls.Add(frm);
+            pnlForms.Tag = frm;
+
+            lblTitulo.Text = frm.Text;
+
+            frm.Show();
+        }
+
     }
 }
