@@ -55,7 +55,7 @@
             // 
             // lblTitulo
             // 
-            this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(662, 25);
@@ -70,7 +70,8 @@
             this.btnProductos.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProductos.FlatAppearance.BorderSize = 0;
             this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProductos.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductos.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductos.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnProductos.Location = new System.Drawing.Point(0, 240);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Size = new System.Drawing.Size(190, 40);
@@ -85,7 +86,8 @@
             this.btnClientes.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnClientes.FlatAppearance.BorderSize = 0;
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClientes.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientes.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientes.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnClientes.Location = new System.Drawing.Point(0, 200);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(190, 40);
@@ -100,7 +102,8 @@
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
             this.button1.Location = new System.Drawing.Point(0, 160);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(190, 40);
@@ -115,7 +118,8 @@
             this.btnProveedores.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProveedores.FlatAppearance.BorderSize = 0;
             this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProveedores.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProveedores.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProveedores.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnProveedores.Location = new System.Drawing.Point(0, 80);
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.Size = new System.Drawing.Size(190, 40);
@@ -130,7 +134,8 @@
             this.btnCompras.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCompras.FlatAppearance.BorderSize = 0;
             this.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCompras.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompras.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompras.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCompras.Location = new System.Drawing.Point(0, 40);
             this.btnCompras.Name = "btnCompras";
             this.btnCompras.Size = new System.Drawing.Size(190, 40);
@@ -145,7 +150,8 @@
             this.btnVentas.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnVentas.FlatAppearance.BorderSize = 0;
             this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVentas.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVentas.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVentas.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnVentas.Location = new System.Drawing.Point(0, 0);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(190, 40);
@@ -160,7 +166,8 @@
             this.btnInventario.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnInventario.FlatAppearance.BorderSize = 0;
             this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInventario.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventario.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventario.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnInventario.Location = new System.Drawing.Point(0, 320);
             this.btnInventario.Name = "btnInventario";
             this.btnInventario.Size = new System.Drawing.Size(190, 40);
@@ -242,7 +249,7 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(51, 22);
+            this.lblUsuario.Location = new System.Drawing.Point(51, 21);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(66, 18);
             this.lblUsuario.TabIndex = 1;
@@ -264,7 +271,8 @@
             this.btnCaja.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCaja.FlatAppearance.BorderSize = 0;
             this.btnCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCaja.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCaja.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCaja.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCaja.Image = global::Sistema_Ferreteria.Properties.Resources.briefcase_solid_full__1_;
             this.btnCaja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCaja.Location = new System.Drawing.Point(0, 280);
@@ -281,7 +289,8 @@
             this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnUsuarios.FlatAppearance.BorderSize = 0;
             this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuarios.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnUsuarios.Image = global::Sistema_Ferreteria.Properties.Resources.Usuarios;
             this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUsuarios.Location = new System.Drawing.Point(0, 120);

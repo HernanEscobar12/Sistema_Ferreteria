@@ -61,7 +61,7 @@
             // 
             // btnNuevaVenta
             // 
-            this.btnNuevaVenta.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnNuevaVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNuevaVenta.Location = new System.Drawing.Point(832, 265);
             this.btnNuevaVenta.Name = "btnNuevaVenta";
             this.btnNuevaVenta.Size = new System.Drawing.Size(99, 39);
@@ -72,7 +72,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.groupBox1.Controls.Add(this.txtNroVenta);
             this.groupBox1.Controls.Add(this.label5);
@@ -141,7 +142,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(634, 114);
+            this.label4.Location = new System.Drawing.Point(569, 137);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 23);
             this.label4.TabIndex = 9;
@@ -152,7 +153,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(229, 114);
+            this.label2.Location = new System.Drawing.Point(196, 140);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 23);
             this.label2.TabIndex = 8;
@@ -162,18 +163,20 @@
             // 
             this.dtpHasta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dtpHasta.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpHasta.Location = new System.Drawing.Point(502, 140);
+            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpHasta.Location = new System.Drawing.Point(635, 134);
             this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(327, 27);
+            this.dtpHasta.Size = new System.Drawing.Size(142, 27);
             this.dtpHasta.TabIndex = 7;
             // 
             // dtpDesde
             // 
             this.dtpDesde.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dtpDesde.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDesde.Location = new System.Drawing.Point(134, 140);
+            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDesde.Location = new System.Drawing.Point(264, 137);
             this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(327, 27);
+            this.dtpDesde.Size = new System.Drawing.Size(144, 27);
             this.dtpDesde.TabIndex = 6;
             // 
             // label3
@@ -220,7 +223,9 @@
             // 
             // dgvVentas
             // 
-            this.dgvVentas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvVentas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVentas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvVentas.Location = new System.Drawing.Point(20, 321);
