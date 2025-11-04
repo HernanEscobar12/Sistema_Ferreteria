@@ -111,6 +111,7 @@ VALUES (@Producto_Id, 'E', @Cantidad, 'Compra', @Referencia_Id, @Sucursal_Id);
                     datos.SetearParametros("@Producto_Id", detalle.Producto.ProductoId);
                     datos.SetearParametros("@Cantidad", detalle.Cantidad);
                     datos.SetearParametros("@Referencia_Id", idCompra);
+                    datos.SetearParametros("@Sucursal_Id", SessionActual.Sucursal.SucursalId);
                     datos.EjecutarAccionTransaccion();
                 }
 
@@ -126,7 +127,7 @@ VALUES (@Producto_Id, 'E', @Cantidad, 'Compra', @Referencia_Id, @Sucursal_Id);
                 datos.CerrarConexion();
             }
         }
-       
+
         public void ModificarCompra(Compra compra)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -237,6 +238,7 @@ VALUES (@Producto_Id, 'E', @Cantidad, 'Compra', @Referencia_Id, @Sucursal_Id);
                     datos.SetearParametros("@Producto_Id", productoId);
                     datos.SetearParametros("@Cantidad", cantidad);
                     datos.SetearParametros("@Referencia_Id", idCompra);
+                    datos.SetearParametros("@Sucursal_Id", SessionActual.Sucursal.SucursalId);
                     datos.EjecutarAccionTransaccion();
                 }
 
@@ -252,8 +254,6 @@ VALUES (@Producto_Id, 'E', @Cantidad, 'Compra', @Referencia_Id, @Sucursal_Id);
                 datos.CerrarConexion();
             }
         }
-    
-
 
         public void CambiarEstadoCompra(int idCompra, int nuevoEstado)
         {
