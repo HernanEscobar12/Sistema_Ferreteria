@@ -83,11 +83,13 @@
             this.btnSalir.TabIndex = 13;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Visible = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(24, 463);
+            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNuevo.Location = new System.Drawing.Point(785, 399);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(88, 33);
             this.btnNuevo.TabIndex = 12;
@@ -97,6 +99,8 @@
             // 
             // dgvEmpleados
             // 
+            this.dgvEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvEmpleados.Location = new System.Drawing.Point(24, 225);
@@ -108,6 +112,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox1.Controls.Add(this.pnFiltroAvanzado);
             this.groupBox1.Controls.Add(this.pnlFiltroSimple);
@@ -121,6 +127,7 @@
             // 
             // pnFiltroAvanzado
             // 
+            this.pnFiltroAvanzado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.pnFiltroAvanzado.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnFiltroAvanzado.Controls.Add(this.btnReiniciar);
             this.pnFiltroAvanzado.Controls.Add(this.label4);
@@ -204,6 +211,7 @@
             // 
             // pnlFiltroSimple
             // 
+            this.pnlFiltroSimple.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.pnlFiltroSimple.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.pnlFiltroSimple.Controls.Add(this.label1);
             this.pnlFiltroSimple.Controls.Add(this.txtFiltroSimple);
@@ -215,6 +223,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 11);
@@ -234,6 +243,7 @@
             // 
             // rbFiltroSimple
             // 
+            this.rbFiltroSimple.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.rbFiltroSimple.AutoSize = true;
             this.rbFiltroSimple.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbFiltroSimple.Location = new System.Drawing.Point(10, 12);
@@ -247,6 +257,7 @@
             // 
             // rbFiltroAvanzado
             // 
+            this.rbFiltroAvanzado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.rbFiltroAvanzado.AutoSize = true;
             this.rbFiltroAvanzado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbFiltroAvanzado.Location = new System.Drawing.Point(149, 13);
