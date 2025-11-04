@@ -31,7 +31,7 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
-            this.btnEmpleados = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
             this.btnCompras = new System.Windows.Forms.Button();
@@ -57,7 +57,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(519, 24);
+            this.lblTitulo.Location = new System.Drawing.Point(662, 25);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(198, 31);
             this.lblTitulo.TabIndex = 0;
@@ -85,16 +85,16 @@
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
-            // btnEmpleados
+            // button1
             // 
-            this.btnEmpleados.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEmpleados.Location = new System.Drawing.Point(0, 160);
-            this.btnEmpleados.Name = "btnEmpleados";
-            this.btnEmpleados.Size = new System.Drawing.Size(190, 40);
-            this.btnEmpleados.TabIndex = 4;
-            this.btnEmpleados.Text = "Empleados";
-            this.btnEmpleados.UseVisualStyleBackColor = true;
-            this.btnEmpleados.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.Location = new System.Drawing.Point(0, 160);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(190, 40);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Empleados";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // btnUsuarios
             // 
@@ -170,7 +170,7 @@
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(984, 80);
+            this.pnlMenu.Size = new System.Drawing.Size(1224, 80);
             this.pnlMenu.TabIndex = 11;
             // 
             // pnlBtns
@@ -181,7 +181,7 @@
             this.pnlBtns.Controls.Add(this.btnCaja);
             this.pnlBtns.Controls.Add(this.btnProductos);
             this.pnlBtns.Controls.Add(this.btnClientes);
-            this.pnlBtns.Controls.Add(this.btnEmpleados);
+            this.pnlBtns.Controls.Add(this.button1);
             this.pnlBtns.Controls.Add(this.btnUsuarios);
             this.pnlBtns.Controls.Add(this.btnProveedores);
             this.pnlBtns.Controls.Add(this.btnCompras);
@@ -189,7 +189,7 @@
             this.pnlBtns.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlBtns.Location = new System.Drawing.Point(0, 80);
             this.pnlBtns.Name = "pnlBtns";
-            this.pnlBtns.Size = new System.Drawing.Size(190, 481);
+            this.pnlBtns.Size = new System.Drawing.Size(190, 581);
             this.pnlBtns.TabIndex = 12;
             // 
             // pnlUsuario
@@ -199,7 +199,7 @@
             this.pnlUsuario.Controls.Add(this.lblUsuario);
             this.pnlUsuario.Controls.Add(this.pictureBox2);
             this.pnlUsuario.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlUsuario.Location = new System.Drawing.Point(0, 421);
+            this.pnlUsuario.Location = new System.Drawing.Point(0, 521);
             this.pnlUsuario.Name = "pnlUsuario";
             this.pnlUsuario.Size = new System.Drawing.Size(190, 60);
             this.pnlUsuario.TabIndex = 11;
@@ -220,7 +220,7 @@
             this.pnlForms.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlForms.Location = new System.Drawing.Point(190, 80);
             this.pnlForms.Name = "pnlForms";
-            this.pnlForms.Size = new System.Drawing.Size(794, 481);
+            this.pnlForms.Size = new System.Drawing.Size(1034, 581);
             this.pnlForms.TabIndex = 13;
             // 
             // btnSalir
@@ -250,6 +250,7 @@
             // pbBanner
             // 
             this.pbBanner.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbBanner.Dock = System.Windows.Forms.DockStyle.Left;
             this.pbBanner.Image = global::Sistema_Ferreteria.Properties.Resources.bannerFerr;
             this.pbBanner.Location = new System.Drawing.Point(0, 0);
             this.pbBanner.Name = "pbBanner";
@@ -257,17 +258,17 @@
             this.pbBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbBanner.TabIndex = 1;
             this.pbBanner.TabStop = false;
-            this.pbBanner.Click += new System.EventHandler(this.pbBanner_Click);
+            this.pbBanner.Click += new System.EventHandler(this.pbBanner_Click_1);
             // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1224, 661);
             this.Controls.Add(this.pnlForms);
             this.Controls.Add(this.pnlBtns);
             this.Controls.Add(this.pnlMenu);
-            this.MinimumSize = new System.Drawing.Size(800, 480);
+            this.MinimumSize = new System.Drawing.Size(1240, 600);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
@@ -287,7 +288,7 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnProductos;
         private System.Windows.Forms.Button btnClientes;
-        private System.Windows.Forms.Button btnEmpleados;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Button btnCompras;

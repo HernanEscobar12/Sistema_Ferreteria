@@ -56,7 +56,7 @@ namespace Sistema_Ferreteria
         {
             //FrmListadoEmpleados frmListadoEmpleados = new FrmListadoEmpleados();
             //frmListadoEmpleados.ShowDialog();
-            AbrirFormularioEnPanel(new FrmListadoEmpleados(), btnEmpleados);
+            AbrirFormularioEnPanel(new FrmListadoEmpleados(), button1);
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
@@ -139,5 +139,14 @@ namespace Sistema_Ferreteria
             frm.Show();
         }
 
+        private void pbBanner_Click_1(object sender, EventArgs e)
+        {
+            if (pnlForms.Controls.Count > 0)
+            {
+                pnlForms.Controls.RemoveAt(0);
+            }
+
+            AbrirFormularioEnPanel(new MenuLogo(), null);
+        }
     }
 }
