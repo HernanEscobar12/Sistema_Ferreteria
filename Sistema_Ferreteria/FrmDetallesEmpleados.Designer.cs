@@ -32,6 +32,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEstado = new System.Windows.Forms.Button();
             this.gboDatos = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cboCargo = new System.Windows.Forms.ComboBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,8 +50,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtCalle = new System.Windows.Forms.TextBox();
-            this.cboCargo = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.gboDatos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,6 +111,25 @@
             this.gboDatos.TabIndex = 21;
             this.gboDatos.TabStop = false;
             this.gboDatos.Text = "Datos";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(220, 319);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 22);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Cargo";
+            // 
+            // cboCargo
+            // 
+            this.cboCargo.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCargo.FormattingEnabled = true;
+            this.cboCargo.Location = new System.Drawing.Point(134, 344);
+            this.cboCargo.Name = "cboCargo";
+            this.cboCargo.Size = new System.Drawing.Size(240, 28);
+            this.cboCargo.TabIndex = 26;
             // 
             // txtEmail
             // 
@@ -258,25 +277,6 @@
             this.txtCalle.Size = new System.Drawing.Size(240, 27);
             this.txtCalle.TabIndex = 9;
             // 
-            // cboCargo
-            // 
-            this.cboCargo.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboCargo.FormattingEnabled = true;
-            this.cboCargo.Location = new System.Drawing.Point(134, 344);
-            this.cboCargo.Name = "cboCargo";
-            this.cboCargo.Size = new System.Drawing.Size(240, 28);
-            this.cboCargo.TabIndex = 26;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(220, 319);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 22);
-            this.label7.TabIndex = 27;
-            this.label7.Text = "Cargo";
-            // 
             // FrmDetallesEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,7 +288,7 @@
             this.Controls.Add(this.btnAceptar);
             this.Name = "FrmDetallesEmpleados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Empleados";
+            this.Text = "Detalles de Empleado";
             this.gboDatos.ResumeLayout(false);
             this.gboDatos.PerformLayout();
             this.ResumeLayout(false);

@@ -218,7 +218,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmDetalleProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Detalle Productos";
+            this.Text = "Detalle del Productos";
             this.Load += new System.EventHandler(this.FrmProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbImage)).EndInit();
             this.ResumeLayout(false);

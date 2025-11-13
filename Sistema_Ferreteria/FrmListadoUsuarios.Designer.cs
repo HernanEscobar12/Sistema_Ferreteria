@@ -342,7 +342,7 @@
             this.Controls.Add(this.dgvUsuarios);
             this.Name = "FrmListadoUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Listados de usuarios";
+            this.Text = "LISTADO DE USUARIOS";
             this.Load += new System.EventHandler(this.FrmListadoUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.groupBox3.ResumeLayout(false);

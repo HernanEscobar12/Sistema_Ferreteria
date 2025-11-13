@@ -483,7 +483,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvDetalleCompra);
             this.Name = "FrmVentas";
-            this.Text = "FrmVentas";
+            this.Text = "VENTAS";
             this.Load += new System.EventHandler(this.FrmVentas_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();

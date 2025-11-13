@@ -282,7 +282,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmListadoEmpleados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Listado de empleados";
+            this.Text = "LISTADO DE EMPLEADOS";
             this.Load += new System.EventHandler(this.FrmListadoEmpleados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.groupBox1.ResumeLayout(false);

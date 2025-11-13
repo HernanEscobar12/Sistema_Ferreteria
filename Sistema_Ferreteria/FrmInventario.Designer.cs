@@ -102,7 +102,7 @@
             this.Controls.Add(this.cbSucursal);
             this.Controls.Add(this.dgvInventario);
             this.Name = "FrmInventario";
-            this.Text = "FrmInventario";
+            this.Text = "INVENTARIO";
             this.Load += new System.EventHandler(this.FrmInventario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
             this.ResumeLayout(false);

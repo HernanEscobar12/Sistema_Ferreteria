@@ -284,7 +284,7 @@
             this.Controls.Add(this.IdCLiente);
             this.Name = "FrmDetalleClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmDetalleClientes";
+            this.Text = "Detalles del Cliente";
             this.Load += new System.EventHandler(this.FrmDetalleClientes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

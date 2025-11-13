@@ -242,7 +242,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvCompras);
             this.Name = "FrmListadoCompras";
-            this.Text = "FrmListadoCompras";
+            this.Text = "LISTADO DE COMPRAS";
             this.Load += new System.EventHandler(this.FrmListadoCompras_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).EndInit();
             this.groupBox1.ResumeLayout(false);

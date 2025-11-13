@@ -502,7 +502,7 @@
             this.Name = "FrmCompras";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCompras";
+            this.Text = "COMPRAS";
             this.Load += new System.EventHandler(this.FrmCompras_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCompra)).EndInit();
             this.groupBox1.ResumeLayout(false);

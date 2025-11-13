@@ -276,7 +276,7 @@
             this.MinimumSize = new System.Drawing.Size(454, 521);
             this.Name = "FrmDetallesProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Proveedor";
+            this.Text = "Detalles del Proveedor";
             this.Load += new System.EventHandler(this.FrmDetallesProveedor_Load_1);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

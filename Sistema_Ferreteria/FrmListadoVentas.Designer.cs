@@ -245,7 +245,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvVentas);
             this.Name = "FrmListadoVentas";
-            this.Text = "FrmListadoVentas";
+            this.Text = "VENTAS";
             this.Load += new System.EventHandler(this.FrmListadoVentas_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

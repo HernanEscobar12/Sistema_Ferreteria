@@ -292,7 +292,7 @@
             this.Controls.Add(this.groupBox2);
             this.Name = "FrmDetalleUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DetalleUsuario";
+            this.Text = "Detalles de Usuario";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
